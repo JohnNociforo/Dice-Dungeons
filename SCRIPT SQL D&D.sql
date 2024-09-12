@@ -2,7 +2,6 @@ create database dicedragons;
 use dicedragons;
 
 -- TABELLA UTENTI --
--- PROVA --
 -- Utenti:
 -- ID
 -- Nome Utente
@@ -25,6 +24,8 @@ create table utenti
 -- Razza / Specie
 -- Livello ( da 1 a 100 modificabile)
 -- HP
+-- Iniziativa
+-- Armor Class
 -- Forza
 -- Destrezza
 -- Costituzione
@@ -47,6 +48,8 @@ create table personaggi
     razza varchar (40),
     livello int,
     hp int,
+    iniziativa double,
+	armorClass int,
     forza int,
     destrezza int,
     costituzione int,
@@ -58,7 +61,6 @@ create table personaggi
     
 );
 
-
 insert into utenti
 (id,nomeUtente,email,password)
 values
@@ -67,10 +69,10 @@ values
 -- GLI HP VANNO DA 0 A 100 -- 
 -- PUNTEGGI MASSIMO 20, NON ANDARE OLTRE --
 insert into personaggi
-(id,idUtenti,nome,classe,razza,livello,hp,forza,destrezza,costituzione,intelligenza,saggezza,carisma,appunti,lingueConosciute)
+(id,idUtenti,nome,classe,razza,livello,hp,iniziativa,armorClass,forza,destrezza,costituzione,intelligenza,saggezza,carisma,appunti,lingueConosciute)
 values
-(1,1,"Mostro della Palude Oscura","BARBARO","GOBLIN",10,100,20,15,10,10,6,15,"Il mostro ha l'abilità di scomparire durante il turno avversario", "CELESTIALE"),
-(2,1,"Babadouck","RANGER","ARACOKRA",5,100,20,15,10,10,6,15,"E' dotato di ali e può volare 3 volte al giorno", "ABISSALE, DRAGONICO");
+(1,1,"Mostro della Palude Oscura","BARBARO","GOBLIN",10,100,2,0,20,15,10,10,6,15,"Il mostro ha l'abilità di scomparire durante il turno avversario", "CELESTIALE"),
+(2,1,"Babadouck","RANGER","ARACOKRA",5,100,2,0,20,15,10,10,6,15,"E' dotato di ali e può volare 3 volte al giorno", "ABISSALE, DRAGONICO");
 
 -- CHECK TABELLE -- 
 select * from utenti;
