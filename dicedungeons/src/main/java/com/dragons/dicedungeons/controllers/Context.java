@@ -1,0 +1,20 @@
+package com.dragons.dicedungeons.controllers;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import com.dragons.dicedungeons.dao.*;
+
+@Configuration
+public class Context {
+    @Bean
+    public Database db() {
+        return new Database("dicedungeons");
+    }
+
+    @Bean
+    public DaoUtenti du() {
+        return new DaoUtenti();
+    }
+
+
+}
