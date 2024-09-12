@@ -1,0 +1,125 @@
+body {
+    font-family: 'MedievalSharp', cursive;
+    background-color: #f3f1e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130vh;
+    margin: 50px;
+    padding: 200px;
+    background-image: url('background-parchment.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.character-sheet {
+    width: 550px;
+    max-width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 244, 220, 0.9);
+    border: 3px solid #5b3924;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 10px;
+    width: 120px; 
+}
+
+.character-name {
+    display: block;
+    width: 80%;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 5px;
+    border: 2px solid #5b3924;
+    border-radius: 5px;
+    background-color: #f9f4e6;
+    box-sizing: border-box;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.left-column, .right-column {
+    width: calc(50% - 10px); 
+    box-sizing: border-box;
+}
+
+label {
+    font-weight: bold;
+    color: #5b3924;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #5b3924;
+    border-radius: 5px;
+    background-color: #f9f4e6;
+    box-sizing: border-box;
+}
+
+.attributes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.attribute {
+    width: calc(33.333% - 10px);
+    text-align: left;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 60px;
+    padding: 5px;
+    background-color: #e85a4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #d44636;
+}
+
+.result {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.equipment-section, .traits-section {
+    margin-top: 15px;
+}
+
+textarea {
+    resize: none;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none; 
+}
