@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Personaggio D&D</title>
+    <!-- Font medievale da Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="character-sheet">
+        <div class="header">
+            <h1>Nome Personaggio</h1>
+            <input type="text" class="character-name">
+        </div>
+        <div class="left-column">
+            <div class="portrait">
+                <p>Immagine del Personaggio</p>
+            </div>
+            <div class="equipment">
+                <h3>Equipaggiamento</h3>
+                <textarea rows="4"></textarea>
+            </div>
+            <div class="privileges">
+                <h3>Privilegio</h3>
+                <textarea rows="2"></textarea>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="basic-info">
+                <label>Razza</label><input type="text">
+                <label>Classe</label><input type="text">
+                <label>Livello</label><input type="number">
+                <label>Allineamento</label><input type="text">
+                <label>Background</label><textarea rows="2"></textarea>
+            </div>
+            <div class="attributes">
+                <div class="attribute">
+                    <label>Forza</label>
+                    <input type="number" id="forza" name="forza">
+                    <button type="button" onclick="rollDice('forza-result')">D20</button>
+                    <span id="forza-result" class="result"></span>
+                </div>
+				<div class="attribute">
+                    <label>Destrezza</label>
+                    <input type="number" id="destrezza" name="destrezza">
+                    <button type="button" onclick="rollDice('destrezza-result')">D20</button>
+                    <span id="destrezza-result" class="result"></span>
+                </div>
+				<div class="attribute">
+                    <label>Costituzione</label>
+                    <input type="number" id="costituzione" name="costituzione">
+                    <button type="button" onclick="rollDice('costituzione-result')">D20</button>
+                    <span id="costituzione-result" class="result"></span>
+                </div>
+				<div class="attribute">
+                    <label>Intelligenza</label>
+                    <input type="number" id="intelligenza" name="intelligenza">
+                    <button type="button" onclick="rollDice('intelligenza-result')">D20</button>
+                    <span id="intelligenza-result" class="result"></span>
+                </div>
+				<div class="attribute">
+                    <label>Saggezza</label>
+                    <input type="number" id="saggezza" name="saggezza">
+                    <button type="button" onclick="rollDice('saggezza-result')">D20</button>
+                    <span id="saggezza-result" class="result"></span>
+                </div>
+				<div class="attribute">
+                    <label>Carisma</label>
+                    <input type="number" id="carisma" name="carisma">
+                    <button type="button" onclick="rollDice('carisma-result')">D20</button>
+                    <span id="carisma-result" class="result"></span>
+                </div>
+                <!-- Ripeti per ogni caratteristica -->
+                <!-- ... -->
+            </div>
+            <div class="skills">
+                <h3>Abilità</h3>
+                <textarea rows="4"></textarea>
+            </div>
+            <div class="attacks">
+                <h3>Attacchi/Incantesimi</h3>
+                <textarea rows="4"></textarea>
+            </div>
+            <div class="traits">
+                <label>Carattere</label><textarea rows="1"></textarea>
+                <label>Ideali</label><textarea rows="1"></textarea>
+                <label>Legami</label><textarea rows="1"></textarea>
+                <label>Difetti</label><textarea rows="1"></textarea>
+                <label>Alleati</label><textarea rows="1"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

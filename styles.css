@@ -1,0 +1,141 @@
+/* styles.css */
+body {
+    font-family: 'MedievalSharp', cursive; /* Font medievale */
+    background-color: #f3f1e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 30px;
+    background-image: url('background-parchment.jpg'); /* Aggiunge una texture di pergamena */
+    background-size: cover;
+}
+
+.character-sheet {
+    width: 900px;
+    background-color: rgba(255, 244, 220, 0.9); /* Colore simile al pergamino con trasparenza */
+    padding: 30px;
+    border: 3px solid #5b3924; /* Bordi più spessi e scuri */
+    border-radius: 15px; /* Angoli arrotondati */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombra per profondità */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.header {
+    grid-column: 1 / span 2;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.character-name {
+    font-size: 24px;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    background-color: #f9f4e6;
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.portrait {
+    height: 300px;
+    background-color: #ded9c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-image: url('portrait-placeholder.jpg'); /* Placeholder per l'immagine */
+    background-size: cover;
+}
+
+.equipment, .privileges, .skills, .attacks, .traits {
+    border: 2px solid #5b3924;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f4e6;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.basic-info label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #5b3924;
+}
+
+.basic-info input, .basic-info textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #f9f4e6;
+}
+
+.attributes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.attribute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.attributes label {
+    font-weight: bold;
+    color: #5b3924;
+}
+
+.attributes input {
+    width: 80%;
+    margin-bottom: 5px;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #f9f4e6;
+}
+
+.attributes button {
+    width: 100%;
+    padding: 8px;
+    background-color: #e85a4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 5px;
+}
+
+.attributes button:hover {
+    background-color: #d44636;
+    transform: scale(1.05);
+}
+
+.result {
+    font-weight: bold;
+    color: #b45f06;
+    margin-top: 5px;
+    display: block;
+    font-size: 18px;
+}
