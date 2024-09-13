@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Personaggio D&D</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="schedaPg/personaggio.css">
+</head>
+<body>
+    <div class="character-sheet">
+        <div class="header">
+            <img src="media/logo.png" alt="Logo" class="logo">
+            <h1>Nome Personaggio</h1>
+            <input type="text" class="character-name">
+            <input type="file" id="image-upload" class="image-upload" accept="image/*">
+        </div>
+
+        <div class="character-image">
+            <img id="character-img" src="character-image.jpg" alt="Immagine del Personaggio">
+        </div>
+
+        <div class="info-section">
+            <div class="left-column">
+                <label>Razza</label><input type="text">
+                <label>Classe</label><input type="text">
+                <label>Livello</label><input type="number" id="level" class="numeric-input" min="1">
+            </div>
+            <div class="right-column">
+                <label>Allineamento</label><input type="text">
+                <label>Background</label><textarea rows="2"></textarea>
+            </div>
+        </div>
+
+        <div class="attributes">
+            <div class="attribute">
+                <label>Forza</label>
+                <input type="number" id="forza" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('forza-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="forza-result" class="result"></span>
+            </div>
+            <div class="attribute">
+                <label>Destrezza</label>
+                <input type="number" id="destrezza" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('destrezza-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="destrezza-result" class="result"></span>
+            </div>
+            <div class="attribute">
+                <label>Costituzione</label>
+                <input type="number" id="costituzione" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('costituzione-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="costituzione-result" class="result"></span>
+            </div>
+            <div class="attribute">
+                <label>Intelligenza</label>
+                <input type="number" id="intelligenza" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('intelligenza-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="intelligenza-result" class="result"></span>
+            </div>
+            <div class="attribute">
+                <label>Saggezza</label>
+                <input type="number" id="saggezza" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('saggezza-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="saggezza-result" class="result"></span>
+            </div>
+            <div class="attribute">
+                <label>Carisma</label>
+                <input type="number" id="carisma" class="numeric-input" min="8" max="20">
+                <button type="button" class="dice-button" onclick="rollDice('carisma-result', this)">
+                    <img src="media/dado.png" alt="Lancia D20">
+                </button>
+                <span id="carisma-result" class="result"></span>
+            </div>
+        </div>
+
+        <div class="calculations">
+            <button type="button" onclick="updateCalculations()">Calcola Armor Class e Iniziativa</button>
+            <div>
+                <span id="armor-class-result" class="result"></span>
+                <span id="initiative-result" class="result"></span>
+            </div>
+        </div>
+
+        <div class="equipment-section">
+            <h3>Equipaggiamento</h3>
+            <textarea rows="2"></textarea>
+        </div>
+
+        <div class="traits-section">
+            <label>Carattere</label><textarea rows="1"></textarea>
+            <label>Ideali</label><textarea rows="1"></textarea>
+        </div>
+    </div>
+
+    <script src="schedaPg/personaggio.js"></script>
+</body>
+</html>
