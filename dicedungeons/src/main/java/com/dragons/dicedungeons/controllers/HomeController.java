@@ -15,16 +15,31 @@ public class HomeController {
     @Autowired
     private DaoUtenti du;
 
-    @GetMapping("creapersonaggio")
-    public String creaPersonaggio() {
-        System.out.println("Mapping scheda");
-        return "schedaPg/stylesheet.html";
-    }
-
     @GetMapping("home")
     public String home() {
         System.out.println("Mapping Homepage");
         return "home/index.html";
+    }
+
+    @GetMapping("creapersonaggio")
+    public String creaPersonaggio() {
+        System.out.println("Mapping scheda");
+        return "schedaPg/personaggio.html";
+    }
+
+
+    //MAPPING PER FORM REGISTRAZIONE NUOVO UTENTE
+    @GetMapping("register")
+    public String register() {
+        System.out.println("Mapping Register");
+        return "formRegistrazioneUtente/register.html";
+    }
+
+    //MAPPING PER REGISTRAZIONE AVVENUTA CON SUCCESSO
+    @GetMapping("registrationsuccess")
+    public String registerationSuccess() {
+        System.out.println("Mapping Registrazione Avvenuta");
+        return "registrationSuccess/registration_success.html";
     }
 
     //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
