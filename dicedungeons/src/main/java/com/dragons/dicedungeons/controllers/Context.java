@@ -8,7 +8,7 @@ import com.dragons.dicedungeons.dao.*;
 public class Context {
     @Bean
     public Database db() {
-        return new Database("dicedungeons");
+        return new Database("dicedragons");
     }
 
     @Bean

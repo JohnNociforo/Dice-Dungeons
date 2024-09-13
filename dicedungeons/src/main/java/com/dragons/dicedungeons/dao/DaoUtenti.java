@@ -12,9 +12,7 @@ public class DaoUtenti {
         return db.update(query, nomeUtente, email, password);
     }
 
-    public List<Map<String,String>> readProva()
-    {
-
+    public List<Map<String, String>> readProva() {
         return db.rows("select * from utenti");
 
     }

@@ -12,8 +12,8 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
-@Autowired
-private DaoUtenti du;
+    @Autowired
+    private DaoUtenti du;
 
     @GetMapping("creapersonaggio")
     public String creaPersonaggio() {
