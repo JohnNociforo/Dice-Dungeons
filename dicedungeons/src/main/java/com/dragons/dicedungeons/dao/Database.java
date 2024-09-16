@@ -77,11 +77,15 @@ public class Database {
 		}
 	}// Fine di row()
 
-	public boolean update(String query, String... params) {
+	public boolean update(String query, Object... params) {
 		try {
 			PreparedStatement ps = c.prepareStatement(query);
 			for (int i = 0; i < params.length; i++) {
-				ps.setString(i + 1, params[i]);
+				if (params[i] instanceof String) {
+					ps.setString(i + 1, (String) params[i]);
+				} else if (params[i] instanceof Integer) {
+					ps.setInt(i+1, (Integer) params[i]);
+				}
 			}
 			ps.executeUpdate();
 			return true;
