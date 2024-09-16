@@ -24,26 +24,55 @@
                 <a href="#">Home</a>
                 <a href="creapersonaggio">Personaggio</a> <!-- Collega alla pagina personaggio -->
                 <a href="#">Mappa</a>
-                <a href="#">Dadi</a>
+
+                <!-- BLOCCO DI CODICE PER BOTTONE CON TENDINA -->
+                    <div id="hormenu">   <!-- div che contiene il menu -->
+                    <ul> <!-- lista principale: definisce il menu nella sua interezza -->
+                    <li>
+                    <a href="#">Dadi</a> <!-- primo list-item, prima voce del menu -->
+                    <ul> <!-- Lista annidata: voci del sotto-menu -->
+                    <li><a href="#">D4</a></li>
+                    <li><a href="#">D6</a></li>
+                    <li><a href="#">D8</a></li>
+                    <li><a href="#">D10</a></li>
+                    <li><a href="#">D12</a></li>
+                    <li><a href="#">D20</a></li>
+                    <li><a href="#">D100</a></li>
+                    </ul> <!-- Fine del sotto-menu -->
+                    </li> <!-- Chiudo il list-item -->
+                    <!--qui altri list-item -->
+                    </div>
+                    
                 <a href="formregistrazione">Account</a>
             </div>
         </div>
 
+        <div class="slider-container">
+            <div class="slider">
+                 <div class="slide active"><img src="media/mappahomepage.webp" alt="Image 1"></div>
+                 <div class="slide"><img src="media/prova.png" alt="Image 2"></div>
+                 <div class="slide"><img src="..." alt="Image 3"></div>
+            </div>
+            <button class="prev" id="prevSlide">&#10094;</button>
+            <button class="next" id="nextSlide">&#10095;</button>
+
+            <!-- HO COMMENTATO I DOT PERCHE' DA UN ERRORE PERCHE' CARICA UN BLOCCO NERO-->
+            <!-- <div class="dot-container" id="dots-container"></div> -->
+       </div>
+
+
+        <!-- CONTENITORI DIV STATICO PER LA MAPPA CHE NON SI USA PIU'
         <div id="map-container">
             <img src="media/mappahomepage.webp" alt="Mappa di Dungeons & Dragons" id="map">
         </div>
+        -->
 
         <div class="footer">
             <p>&copy; 2024 Dungeons & Dragons Map. All rights reserved.</p>
         </div>
     </div>
 
-    <script>
-        setTimeout(function(){
-            document.getElementById('logo-animation').style.display = 'none';
-            document.getElementById('main-content').classList.remove('hidden');
-            document.getElementById('main-content').classList.add('fade-in');
-        }, 3000);
-    </script>
+    <script src="home/script.js"></script>
+        
 </body>
 </html>
