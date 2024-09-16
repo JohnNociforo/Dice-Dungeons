@@ -16,5 +16,10 @@ public class Context {
         return new DaoUtenti();
     }
 
+    @Bean
+    public DaoPersonaggi dp() {
+        return new DaoPersonaggi();
+    }
+
 
 }

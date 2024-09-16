@@ -1,6 +1,5 @@
 package com.dragons.dicedungeons.controllers;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 public class HomeController {
     @Autowired
     private DaoUtenti du;
+    private DaoPersonaggi dp;
 
     @GetMapping("home")
     public String home() {
@@ -25,8 +25,10 @@ public class HomeController {
     }
 
     @GetMapping("creapersonaggio")
-    public String creaPersonaggio() {
+    public String creaPersonaggio(HttpSession session) {
         System.out.println("Mapping scheda");
+        if(session.getAttribute("loggato") == null)
+            return "redirect:formlogin";
         return "schedaPg/personaggio.html";
     }
 
@@ -106,4 +108,31 @@ public class HomeController {
         return "home/index.html";
     }
 
+    @PostMapping("creapersonaggio")
+    public String creaPersonaggio(HttpSession session, 
+        @RequestParam("nomepersonaggio") String nome, 
+        @RequestParam("classe") String classe,
+        @RequestParam("razza") String razza,
+        @RequestParam("livello") Integer livello,
+        @RequestParam("background") String background,
+        @RequestParam("hp") Integer hp,
+        @RequestParam("iniziativa") Integer iniziativa,
+        @RequestParam("armorclass") Integer armorClass,
+        @RequestParam("forza") Integer forza,
+        @RequestParam("destrezza") Integer destrezza,
+        @RequestParam("costituzione") Integer costituzione,
+        @RequestParam("intelligenza") Integer intelligenza,
+        @RequestParam("saggezza") Integer saggezza,
+        @RequestParam("carisma") Integer carisma,
+        @RequestParam("allineamento") String allineamento,
+        @RequestParam("equipaggiamento") String equipaggiamento,
+        @RequestParam("carattere") String carattere,
+        @RequestParam("ideali") String ideali)
+        {
+            String nomeUtente = ((Map<String,String>)session.getAttribute("utente")).get("username");
+            if (dp.create(nomeUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
+                return "redirect:registrationsuccess";
+            else
+                return "redirect:register";
+    }
 }
