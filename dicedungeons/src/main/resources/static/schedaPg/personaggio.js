@@ -94,3 +94,28 @@ function calculateIniziativa(destrezza) {
     if (destrezza === 20) return 5;
     return 0;
 }
+
+function creaPersonaggio() {
+    const form = document.getElementById('creazionescheda');
+
+    const inputs = form.querySelectorAll('input, textarea');
+    let form_valido = true;
+    let errorMessage = '';
+
+    const errorMessageElement = document.getElementById('error-message');
+    inputs.forEach(input => {
+        input.classList.remove('invalid');
+
+        if (input.hasAttribute("required") && (input.value == null || input.value == undefined || input.value.trim() === '')) {
+            form_valido = false;
+            errorMessage += `Riempire il campo ${input.name}.<br>`;
+            input.classList.add('invalid');
+        }
+    });
+
+    if (form_valido) {
+        //TODO: mandare la richiesta a spring
+    } else {
+        errorMessageElement.innerHTML = errorMessage;
+    }
+}
