@@ -45,7 +45,6 @@ create table personaggi
     on delete set null
     on update cascade,
 	nome varchar (40),
-    immagine varbinary(8000),
     classe varchar (40),
     razza varchar (40),
     livello int,
