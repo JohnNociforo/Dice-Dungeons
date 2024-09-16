@@ -11,6 +11,53 @@ function rollDice(resultId, button) {
     setTimeout(() => button.classList.remove('active'), 300);
 }
 
+function rollD4(resultId) {
+
+    const result = Math.floor(Math.random() * 4) + 1; // Tira un dado D4
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+
+function rollD6(resultId) {
+
+    const result = Math.floor(Math.random() * 6) + 1; // Tira un dado D6
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+
+function rollD8(resultId) {
+
+    const result = Math.floor(Math.random() * 8) + 1; // Tira un dado D8
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+
+function rollD10(resultId) {
+
+    const result = Math.floor(Math.random() * 10) + 1; // Tira un dado D10
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+function rollD12(resultId) {
+
+    const result = Math.floor(Math.random() * 12) + 1; // Tira un dado D12
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+
+function rollD100(resultId) {
+
+    const result = Math.floor(Math.random() * 100) + 1; // Tira un dado D100
+
+    document.getElementById(resultId).textContent = `Risultato: ${result}`;
+
+}
+
 function updateCalculations() {
     const costituzione = parseInt(document.getElementById('costituzione').value) || 0;
     const destrezza = parseInt(document.getElementById('destrezza').value) || 0;
