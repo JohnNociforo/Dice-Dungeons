@@ -56,6 +56,16 @@ public class HomeController {
 
     // QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
     // SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
+
+    //MAPPING PER REGISTRAZIONE AVVENUTA CON SUCCESSO
+    @GetMapping("login")
+    public String login() {
+        System.out.println("Mapping Login");
+        return "login/login.html";
+    }
+
+    //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
+    //SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
     @GetMapping("")
     public String home(HttpSession session) {
 
