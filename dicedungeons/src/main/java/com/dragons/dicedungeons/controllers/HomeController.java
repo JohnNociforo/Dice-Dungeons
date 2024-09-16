@@ -31,19 +31,29 @@ public class HomeController {
     }
 
     // MAPPING PER FORM REGISTRAZIONE NUOVO UTENTE
+    @GetMapping("formregistrazione")
+    public String formregistrazione() {
+        System.out.println("Mapping form registrazione");
+        return "formRegistrazioneUtente/formRegistrazione.html";
+    }
+
     @PostMapping("register")
     public String register(@RequestParam("username") String username,
             @RequestParam("email") String email,
             @RequestParam("password") String password,
             HttpSession session) {
         if (du.cercaUtente(username, password) != null)
-            return "redirect:formlogin";
+        {
+                System.out.println("TROVATO UTENTE!");
+                return "redirect:login";
+        }
         else {
             if (du.create(username, email, password))
-                return "redirect:formlogin";
+                return "redirect:registrationsuccess";
             else
                 return "redirect:register";
         }
+        
 
     }
 
@@ -58,10 +68,31 @@ public class HomeController {
     // SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
 
     //MAPPING PER REGISTRAZIONE AVVENUTA CON SUCCESSO
-    @GetMapping("login")
+    @GetMapping("formlogin")
     public String login() {
         System.out.println("Mapping Login");
-        return "login/login.html";
+        return "login/formLogin.html";
+    }
+
+    @PostMapping("login")
+    public String login(@RequestParam("username") String username,
+            @RequestParam("password") String password,
+            HttpSession session) {
+        if (du.cercaUtente(username, password) != null)
+        {
+                System.out.println("TROVATO UTENTE!");
+                Map<String,String> utente = du.cercaUtente(username, password);
+                session.setAttribute("loggato", "ok");
+                session.setAttribute("utente", utente);
+                return "redirect:home";
+        }
+        else {
+            System.out.println("UTENTE NON TROVATO!");
+            return "redirect:login";
+            
+        }
+        
+
     }
 
     //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
@@ -69,10 +100,10 @@ public class HomeController {
     @GetMapping("")
     public String home(HttpSession session) {
 
-        // if(session.getAttribute("loggato") == null)
-        // return "redirect:formlogin";
-        // return "home/index.html";
-        return home();
+        if(session.getAttribute("loggato") == null)
+            return "redirect:formlogin";
+
+        return "home/index.html";
     }
 
     @GetMapping("prova")
