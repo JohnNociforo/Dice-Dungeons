@@ -1,3 +1,4 @@
+-- Active: 1726214362471@@172.18.0.1@3306
 create database dicedragons;
 use dicedragons;
 
@@ -11,7 +12,7 @@ use dicedragons;
 create table utenti
 (
 	id int primary key auto_increment,
-	nomeUtente varchar (40),
+	username varchar (40),
     email varchar (60),
     password varchar (20)
 );
