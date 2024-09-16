@@ -21,7 +21,6 @@
                 <img src="media/logo2.png" alt="Dice & Dungeons logo">
             </div>
             <div class="menu">
-                <a href="#">Home</a>
                 <a href="creapersonaggio">Personaggio</a> <!-- Collega alla pagina personaggio -->
                 <a href="#">Mappa</a>
 
@@ -31,18 +30,17 @@
                     <li>
                     <a href="#">Dadi</a> <!-- primo list-item, prima voce del menu -->
                     <ul> <!-- Lista annidata: voci del sotto-menu -->
-                    <li><a href="#">D4</a></li>
-                    <li><a href="#">D6</a></li>
-                    <li><a href="#">D8</a></li>
-                    <li><a href="#">D10</a></li>
-                    <li><a href="#">D12</a></li>
-                    <li><a href="#">D20</a></li>
-                    <li><a href="#">D100</a></li>
+                    <li><a href="#" onclick = "rollD4('d4-result', this)"> <img src="media/dado_d4.png" alt="dado_d4"> <span id="d4-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD6('d6-result', this)">D6 <span id="d6-result" class="result"></span></a></li>
+                    <li><a href="#" onclick = "rollD8('d8-result', this)">D8 <span id="d8-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD10('d10-result', this)">D10 <span id="d10-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD12('d12-result', this)">D12  <span id="d12-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollDice('d20-result', this)">D20 <span id="d20-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD100('d100-result', this)">D100 <span id="d100-result" class="result"></span> </a></li>
                     </ul> <!-- Fine del sotto-menu -->
                     </li> <!-- Chiudo il list-item -->
                     <!--qui altri list-item -->
                     </div>
-                    
                 <a href="formregistrazione">Account</a>
             </div>
         </div>
@@ -73,6 +71,8 @@
     </div>
 
     <script src="home/script.js"></script>
+    <script src="schedaPg/personaggio.js"></script>
+    
         
 </body>
 </html>
