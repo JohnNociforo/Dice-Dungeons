@@ -45,10 +45,11 @@ create table personaggi
     on delete set null
     on update cascade,
 	nome varchar (40),
+    immagine varbinary(8000),
     classe varchar (40),
     razza varchar (40),
     livello int,
-    hp int,
+    hp int, 
     iniziativa double,
 	armorClass int,
     forza int,
@@ -57,13 +58,15 @@ create table personaggi
     intelligenza int,
     saggezza int,
     carisma int,
-    appunti varchar (1000),
-    lingueConosciute varchar (100)
-    
+    allineamento varchar(1000),
+    background varchar(1000),
+    equipaggiamento varchar(1000),
+    carattere varchar(1000),
+    ideali varchar(1000)
 );
 
 insert into utenti
-(id,nomeUtente,email,password)
+(id,username,email,password)
 values
 (1,"GLADIATORE","gladiatore@gmail.com","topolino");
 
