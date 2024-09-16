@@ -86,7 +86,7 @@ public class HomeController {
                 Map<String,String> utente = du.cercaUtente(username, password);
                 session.setAttribute("loggato", "ok");
                 session.setAttribute("utente", utente);
-                return "redirect:home";
+                return "redirect:homeutenteloggato";
         }
         else {
             System.out.println("UTENTE NON TROVATO!");
@@ -96,6 +96,20 @@ public class HomeController {
         
 
     }
+
+    //USO QUESTO MAPPING NEL BOTTONE LOGOUT DELLA HOMEPAGE PER FARE IN MODO CHE L'UTENTE SI SCOLLEGHI DAL SUO ACCOUNT
+    @GetMapping("logout")
+    public String logout() {
+        System.out.println("Mapping LogOut");
+        return "formregistrazione";
+    }
+
+    @GetMapping("homeutenteloggato")
+    public String homeutenteloggato() {
+        System.out.println("Mapping HomeUtenteLoggato");
+        return "homeUtenteLoggato/homeUtenteLoggato.html";
+    }
+
 
     //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
     //SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
