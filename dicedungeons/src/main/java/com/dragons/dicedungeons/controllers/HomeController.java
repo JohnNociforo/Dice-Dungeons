@@ -106,15 +106,4 @@ public class HomeController {
         return "home/index.html";
     }
 
-    @GetMapping("prova")
-    public String prova() {
-
-        // if(session.getAttribute("loggato") == null)
-        // return "redirect:formlogin";
-        // return "home/index.html";
-        List<Map<String, String>> rows = du.readProva();
-        System.out.println(rows.get(0));
-        return "";
-    }
-
 }
