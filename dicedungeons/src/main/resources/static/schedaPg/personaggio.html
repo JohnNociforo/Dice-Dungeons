@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="character-sheet">
-        <form action="creapersonaggio" method="post">
+        <form id="creazionescheda" action="creapersonaggio" method="post">
         <div class="header">
             <img src="media/logo.png" alt="Logo" class="logo">
             <h1>Nome Personaggio</h1>
-            <input type="text" class="character-name" id="nome-personaggio">
-            <input type="file" id="image-upload" class="image-upload" accept="image/*">
+            <input type="text" class="character-name" id="nome-personaggio" name="Nome" required>
+            <input type="file" id="image-upload" name="Immagine" class="image-upload" accept="image/*">
         </div>
 
         <div class="character-image">
@@ -23,20 +23,20 @@
 
         <div class="info-section">
             <div class="left-column">
-                <label>Razza</label><input type="text" id="razza">
-                <label>Classe</label><input type="text" id="classe">
-                <label>Livello</label><input type="number" id="livello" class="numeric-input" min="1">
+                <label>Razza</label><input type="text" id="razza" name="Razza" required>
+                <label>Classe</label><input type="text" id="classe" name="Classe" required>
+                <label>Livello</label><input type="number" id="livello" name="Livello" class="numeric-input" min="1" required>
             </div>
             <div class="right-column">
-                <label>Allineamento</label><input type="text" id="allineamento">
-                <label>Background</label><textarea id="background" rows="2"></textarea>
+                <label>Allineamento</label><input type="text" id="allineamento" name="Allineamento" required>
+                <label>Background</label><textarea id="background" name="Background" rows="2"></textarea>
             </div>
         </div>
 
         <div class="attributes">
             <div class="attribute">
                 <label>Forza</label>
-                <input type="number" id="forza" class="numeric-input" min="8" max="20">
+                <input type="number" id="forza" name="Forza" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('forza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -44,7 +44,7 @@
             </div>
             <div class="attribute">
                 <label>Destrezza</label>
-                <input type="number" id="destrezza" class="numeric-input" min="8" max="20">
+                <input type="number" id="destrezza" name="Destrezza" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('destrezza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -52,7 +52,7 @@
             </div>
             <div class="attribute">
                 <label>Costituzione</label>
-                <input type="number" id="costituzione" class="numeric-input" min="8" max="20">
+                <input type="number" id="costituzione" name="Costituzione" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('costituzione-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -60,7 +60,7 @@
             </div>
             <div class="attribute">
                 <label>Intelligenza</label>
-                <input type="number" id="intelligenza" class="numeric-input" min="8" max="20">
+                <input type="number" id="intelligenza" name="Intelligenza" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('intelligenza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -68,7 +68,7 @@
             </div>
             <div class="attribute">
                 <label>Saggezza</label>
-                <input type="number" id="saggezza" class="numeric-input" min="8" max="20">
+                <input type="number" id="saggezza" name="Saggezza" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('saggezza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -76,7 +76,7 @@
             </div>
             <div class="attribute">
                 <label>Carisma</label>
-                <input type="number" id="carisma" class="numeric-input" min="8" max="20">
+                <input type="number" id="carisma" name="Carisma" class="numeric-input" min="8" max="20" required>
                 <button type="button" class="dice-button" onclick="rollDice('carisma-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
@@ -87,10 +87,9 @@
         <div class="calculations">
             <button type="button" onclick="updateCalculations()">Calcola Armor Class e Iniziativa</button>
             <div>
-                <!--come rendere armor class e iniziativa input?-->
-                <input type="hidden" id="armorclass">
+                <input type="hidden" name="Armor Class" id="armorclass" required>
                 <span id="armor-class-result" class="result"></span>
-                <input type="hidden" id="result">
+                <input type="hidden" name="Iniziativa" id="result" required>
                 <span id="initiative-result" class="result"></span>
             </div>
         </div>
@@ -103,6 +102,11 @@
         <div class="traits-section">
             <label>Carattere</label><textarea id="carattere" rows="1"></textarea>
             <label>Ideali</label><textarea id="ideali" rows="1"></textarea>
+        </div>
+        <div class="submit">
+            <button type="button" onclick="creaPersonaggio()">Crea</button>
+            <br>
+            <span id="error-message" class="error"></span>
         </div>
     </form>
     </div>

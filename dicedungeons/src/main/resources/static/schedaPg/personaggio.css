@@ -163,3 +163,7 @@ textarea {
     resize: none;
     box-sizing: border-box;
 }
+
+ .invalid {
+     border: 2px solid red;
+ }
