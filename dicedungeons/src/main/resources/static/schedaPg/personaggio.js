@@ -67,6 +67,10 @@ function updateCalculations() {
 
     document.getElementById('armor-class-result').textContent = `Armor Class: ${armorClass}`;
     document.getElementById('initiative-result').textContent = `Iniziativa: ${iniziativa}`;
+
+    //mettiamo i valori nei campi input nascosti
+    document.getElementById('armorclass').value = armorClass;
+    document.getElementById('iniziativa').value = iniziativa;
 }
 
 function calculateArmorClass(costituzione) {

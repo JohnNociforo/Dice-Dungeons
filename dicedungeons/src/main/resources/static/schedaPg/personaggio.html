@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="character-sheet">
+        <form action="creapersonaggio" method="post">
         <div class="header">
             <img src="media/logo.png" alt="Logo" class="logo">
             <h1>Nome Personaggio</h1>
-            <input type="text" class="character-name">
+            <input type="text" class="character-name" id="nome-personaggio">
             <input type="file" id="image-upload" class="image-upload" accept="image/*">
         </div>
 
@@ -22,13 +23,13 @@
 
         <div class="info-section">
             <div class="left-column">
-                <label>Razza</label><input type="text">
-                <label>Classe</label><input type="text">
-                <label>Livello</label><input type="number" id="level" class="numeric-input" min="1">
+                <label>Razza</label><input type="text" id="razza">
+                <label>Classe</label><input type="text" id="classe">
+                <label>Livello</label><input type="number" id="livello" class="numeric-input" min="1">
             </div>
             <div class="right-column">
-                <label>Allineamento</label><input type="text">
-                <label>Background</label><textarea rows="2"></textarea>
+                <label>Allineamento</label><input type="text" id="allineamento">
+                <label>Background</label><textarea id="background" rows="2"></textarea>
             </div>
         </div>
 
@@ -86,20 +87,24 @@
         <div class="calculations">
             <button type="button" onclick="updateCalculations()">Calcola Armor Class e Iniziativa</button>
             <div>
+                <!--come rendere armor class e iniziativa input?-->
+                <input type="hidden" id="armorclass">
                 <span id="armor-class-result" class="result"></span>
+                <input type="hidden" id="result">
                 <span id="initiative-result" class="result"></span>
             </div>
         </div>
 
         <div class="equipment-section">
             <h3>Equipaggiamento</h3>
-            <textarea rows="2"></textarea>
+            <textarea id="equipaggiamento" rows="2"></textarea>
         </div>
 
         <div class="traits-section">
-            <label>Carattere</label><textarea rows="1"></textarea>
-            <label>Ideali</label><textarea rows="1"></textarea>
+            <label>Carattere</label><textarea id="carattere" rows="1"></textarea>
+            <label>Ideali</label><textarea id="ideali" rows="1"></textarea>
         </div>
+    </form>
     </div>
 
     <script src="schedaPg/personaggio.js"></script>
