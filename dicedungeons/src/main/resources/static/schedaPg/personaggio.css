@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 180vh;
+    /*height: 180vh;*/
     margin: 0;
     padding: 20px;
     background-image: url('background-parchment.jpg');
