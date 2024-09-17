@@ -9,8 +9,9 @@ public class DaoPersonaggi {
 	private Database db;
 
 	public boolean create(String nomeUtente, String nome, String classe, String razza, int livello, int hp, int iniziativa, int armorClass, int forza, int destrezza, int costituzione, int intelligenza, int saggezza, int carisma, String allineamento, String background, String equipaggiamento, String carattere, String ideali) {
-        String query = "insert into personaggi (idUtenti, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		Map<String,String> idUtente = cercaUtentePerUsername(nomeUtente);
+        String query = "insert into personaggi (idUtenti, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		int idUtente = Integer.parseInt(cercaUtentePerUsername(nomeUtente).get("id"));
+		System.out.println(nomeUtente + " " + idUtente);
         return db.update(query, idUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali);
     }
 
@@ -30,6 +31,7 @@ public class DaoPersonaggi {
 		// corretti. Se lo sono il db restituisce una mappa PIENA
 		String query = "select * from utenti where username = ?";
 		Map<String, String> u = db.row(query, username);
+		System.out.println(u);
 		// Se la mappa restituita dal DB è vuota significa che sarà null in quanto
 		// l'utente non è presente nella tabella.
 		// In caso contrario ritorna l'intera riga dell'utente al quale corrispondono

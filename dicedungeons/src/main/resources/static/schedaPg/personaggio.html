@@ -13,7 +13,7 @@
         <div class="header">
             <img src="media/logo.png" alt="Logo" class="logo">
             <h1>Nome Personaggio</h1>
-            <input type="text" class="character-name" id="nome-personaggio" name="Nome" required>
+            <input type="text" class="character-name" id="nomepersonaggio" name="Nome" required>
             <input type="file" id="image-upload" name="Immagine" class="image-upload" accept="image/*">
         </div>
 
@@ -29,6 +29,7 @@
             </div>
             <div class="right-column">
                 <label>Allineamento</label><input type="text" id="allineamento" name="Allineamento" required>
+                <label>Punti Vita</label><input type="number" id="hp" name="Punti Vita" class="numeric-input" min="1" required>
                 <label>Background</label><textarea id="background" name="Background" rows="2"></textarea>
             </div>
         </div>
@@ -89,7 +90,7 @@
             <div>
                 <input type="hidden" name="Armor Class" id="armorclass" required>
                 <span id="armor-class-result" class="result"></span>
-                <input type="hidden" name="Iniziativa" id="result" required>
+                <input type="hidden" name="Iniziativa" id="iniziativa" required>
                 <span id="initiative-result" class="result"></span>
             </div>
         </div>

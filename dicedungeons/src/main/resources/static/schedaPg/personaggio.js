@@ -115,6 +115,66 @@ function creaPersonaggio() {
 
     if (form_valido) {
         //TODO: mandare la richiesta a spring
+        const nomepersonaggio = document.getElementById('nomepersonaggio').value;
+        const classe = document.getElementById('classe').value;
+        const razza = document.getElementById('razza').value;
+        const livello = document.getElementById('livello').value;
+        const background = document.getElementById('background').value;
+        const hp = document.getElementById('hp').value;
+        const iniziativa = document.getElementById('iniziativa').value;
+        const armorClass = document.getElementById('armorclass').value;
+        const forza = document.getElementById('forza').value;
+        const destrezza = document.getElementById('destrezza').value;
+        const costituzione = document.getElementById('costituzione').value;
+        const intelligenza = document.getElementById('intelligenza').value;
+        const saggezza = document.getElementById('saggezza').value;
+        const carisma = document.getElementById('carisma').value;
+        const allineamento = document.getElementById('allineamento').value;
+        const equipaggiamento = document.getElementById('equipaggiamento').value;
+        const carattere = document.getElementById('carattere').value;
+        const ideali = document.getElementById('ideali').value;
+
+        // Prepare data for POST request (URL encoded format)
+        const formData = new URLSearchParams();
+        formData.append('nomepersonaggio', nomepersonaggio);
+        formData.append('classe', classe);
+        formData.append('razza', razza);
+        formData.append('livello', livello);
+        formData.append('background', background);
+        formData.append('hp', hp);
+        formData.append('iniziativa', iniziativa);
+        formData.append('armorclass', armorClass);
+        formData.append('forza', forza);
+        formData.append('destrezza', destrezza);
+        formData.append('costituzione', costituzione);
+        formData.append('intelligenza', intelligenza);
+        formData.append('saggezza', saggezza);
+        formData.append('carisma', carisma);
+        formData.append('allineamento', allineamento);
+        formData.append('equipaggiamento', equipaggiamento);
+        formData.append('carattere', carattere);
+        formData.append('ideali', ideali);
+
+        // Send POST request to Spring Boot backend
+        fetch('/creapersonaggio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData
+        }).then(response => { 
+            if (response.redirected) {
+                    // If redirected, navigate to the success or failure page
+                    window.location.href = response.url;
+                } else {
+                    // Handle non-redirect scenarios if needed
+                    return response.text();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
     } else {
         errorMessageElement.innerHTML = errorMessage;
     }

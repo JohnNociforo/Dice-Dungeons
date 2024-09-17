@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 public class HomeController {
     @Autowired
     private DaoUtenti du;
+    @Autowired
     private DaoPersonaggi dp;
 
     @GetMapping("home")
@@ -143,7 +144,9 @@ public class HomeController {
         @RequestParam("carattere") String carattere,
         @RequestParam("ideali") String ideali)
         {
+            System.out.println(dp);
             String nomeUtente = ((Map<String,String>)session.getAttribute("utente")).get("username");
+            System.out.println(nomeUtente);
             if (dp.create(nomeUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
                 return "redirect:registrationsuccess";
             else
