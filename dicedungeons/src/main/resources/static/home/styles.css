@@ -117,6 +117,26 @@ body {
     transform: scale(1.1);
 }
 
+/********* PARTE DI CSS PER I BOTTONI NEL MENU' SOPRA ********/
+.dice-roll-menu{
+height: 50px;
+width: 50px;
+}
+
+/*PROVA PER FARE RUOTARE IL DADO ONCLICK*/
+.dice-roll-menu.active img {
+    transform: rotate(360deg);
+}
+
+/*PUNTA SUI RISULTATI DEL CLICK DELLE ICONE DEI DADI*/
+.result {
+    font-family: 'MedievalSharp', cursive;
+    
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+}
+
 
 /* Mappa *//*
 #map-container {
