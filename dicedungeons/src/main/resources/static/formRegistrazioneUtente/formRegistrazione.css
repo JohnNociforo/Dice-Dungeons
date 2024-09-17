@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 180vh;
+    /*height: 180vh; COMMENTO PERCHE' DA TROPPA ALTEZZA SOPRA */
     margin: 0;
     padding: 20px;
     background-image: url('background-parchment.jpg');
@@ -140,7 +140,7 @@ body {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #FFD700;
+    background-color: #FCB200;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
