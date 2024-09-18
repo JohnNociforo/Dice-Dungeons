@@ -42,13 +42,17 @@ public class Database {
 		return this.c;
 	}
 
-	public List<Map<String, String>> rows(String query, String... params) {
+	public List<Map<String, String>> rows(String query, Object... params) {
 		List<Map<String, String>> ris = new ArrayList<Map<String, String>>();
 		PreparedStatement ps = null;
 		try {
 			ps = c.prepareStatement(query);
 			for (int i = 0; i < params.length; i++) {
-				ps.setString(i + 1, params[i]);
+				if (params[i] instanceof String) {
+					ps.setString(i + 1, (String) params[i]);
+				} else {
+					ps.setInt(i+1, ((int[]) params[i])[0]);
+				}
 			}
 			ResultSet tabella = ps.executeQuery();
 
@@ -70,6 +74,14 @@ public class Database {
 	}// Fine di rows
 
 	public Map<String, String> row(String query, String... params) {
+		try {
+			return rows(query, params).get(0);
+		} catch (Exception e) {
+			return null;
+		}
+	}// Fine di row()
+
+	public Map<String, String> row(String query, int... params) {
 		try {
 			return rows(query, params).get(0);
 		} catch (Exception e) {

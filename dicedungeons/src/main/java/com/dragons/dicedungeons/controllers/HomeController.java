@@ -1,14 +1,17 @@
 package com.dragons.dicedungeons.controllers;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dragons.dicedungeons.dao.*;
+import com.dragons.dicedungeons.dao.DaoPersonaggi;
+import com.dragons.dicedungeons.dao.DaoUtenti;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -25,12 +28,22 @@ public class HomeController {
         return "home/index.html";
     }
 
-    @GetMapping("creapersonaggio")
-    public String creaPersonaggio(HttpSession session) {
+    @GetMapping("personaggio")
+    public String personaggio(HttpSession session) {
         System.out.println("Mapping scheda");
+
         if(session.getAttribute("loggato") == null)
             return "redirect:formlogin";
+
         return "schedaPg/personaggio.html";
+    }
+
+    @PostMapping("getpersonaggio")
+    public ResponseEntity<Map<String,String>> getPersonaggio(HttpSession session) {
+        int idUtente = Integer.parseInt(((Map<String,String>)session.getAttribute("utente")).get("id"));
+        System.out.println(idUtente);
+        Map<String,String> datiPersonaggio = dp.cercaPersonaggioPerUID(idUtente);
+        return ResponseEntity.ok(datiPersonaggio);
     }
 
     // MAPPING PER FORM REGISTRAZIONE NUOVO UTENTE
@@ -123,8 +136,8 @@ public class HomeController {
         return "home/index.html";
     }
 
-    @PostMapping("creapersonaggio")
-    public String creaPersonaggio(HttpSession session, 
+    @PostMapping("salvapersonaggio")
+    public String salvaPersonaggio(HttpSession session, 
         @RequestParam("nomepersonaggio") String nome, 
         @RequestParam("classe") String classe,
         @RequestParam("razza") String razza,
@@ -144,9 +157,7 @@ public class HomeController {
         @RequestParam("carattere") String carattere,
         @RequestParam("ideali") String ideali)
         {
-            System.out.println(dp);
             String nomeUtente = ((Map<String,String>)session.getAttribute("utente")).get("username");
-            System.out.println(nomeUtente);
             if (dp.create(nomeUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
                 return "redirect:registrationsuccess";
             else

@@ -114,7 +114,6 @@ function creaPersonaggio() {
     });
 
     if (form_valido) {
-        //TODO: mandare la richiesta a spring
         const nomepersonaggio = document.getElementById('nomepersonaggio').value;
         const classe = document.getElementById('classe').value;
         const razza = document.getElementById('razza').value;
@@ -156,7 +155,7 @@ function creaPersonaggio() {
         formData.append('ideali', ideali);
 
         // Send POST request to Spring Boot backend
-        fetch('/creapersonaggio', {
+        fetch('creapersonaggio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -173,9 +172,33 @@ function creaPersonaggio() {
             })
             .catch(error => {
                 console.error('Error:', error);
-            });
+            }) ;
 
     } else {
         errorMessageElement.innerHTML = errorMessage;
     }
 }
+
+function getDatiPersonaggio() { 
+    fetch('/getpersonaggio', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(characterData => {
+            console.log('Character Data:', characterData);
+            // Use the data as needed
+        })
+        .catch(error => {
+            console.error('Error fetching character data:', error);
+        });
+}
+
+window.onload = getDatiPersonaggio;

@@ -15,13 +15,9 @@ public class DaoPersonaggi {
         return db.update(query, idUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali);
     }
 
-	public List<Map<String, String>> readProva() {
-		return db.rows("select * from personaggi");
-	}
-
-	public Map<String, String> cercaUtente(String username, String password) {
-		String query = "select * from utenti where username = ? and password = ?";
-		Map<String, String> u = db.row(query, username, password);
+	public Map<String, String> cercaPersonaggioPerUID(int uid) {
+		String query = "select * from personaggi where idUtenti = ?";
+		Map<String, String> u = db.row(query, uid);
 		return u == null ? null : u;
 	}
 
