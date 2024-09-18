@@ -1,4 +1,4 @@
-const diceSound = new Audio('dado.mp3');
+const diceSound = new Audio('media/dado.mp3');
 
 function rollDice(resultId, button) {
 
