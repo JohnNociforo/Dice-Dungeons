@@ -18,31 +18,61 @@
     <div id="main-content" class="hidden">
         <div class="header">
             <div class="logo">
-                <img src="media/logo2.png" alt="Dice & Dungeons logo">
+                <img src="media/logo_header.png" alt="Dice & Dungeons logo">
             </div>
             <div class="menu">
                 <a href="creapersonaggio">Personaggio</a> <!-- Collega alla pagina personaggio -->
                 <a href="#">Mappa</a>
-                <a href="#">Dadi</a>
-                <a href="formregistrazione">Log-Out</a>
+
+                <!-- BLOCCO DI CODICE PER BOTTONE CON TENDINA -->
+                    <div id="hormenu">   <!-- div che contiene il menu -->
+                    <ul> <!-- lista principale: definisce il menu nella sua interezza -->
+                    <li>
+                    <a href="#">Dadi</a> <!-- primo list-item, prima voce del menu -->
+                    <ul> <!-- Lista annidata: voci del sotto-menu -->
+                    <li><a href="#" onclick = "rollD4('d4-result', this)"> <img src="media/dado_d4.png" class="dice-roll-menu"> <span id="d4-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD6('d6-result', this)"> <img src="media/dado_d6.png" class="dice-roll-menu"> <span id="d6-result" class="result"></span></a></li>
+                    <li><a href="#" onclick = "rollD8('d8-result', this)"> <img src="media/dado_d8.png" class="dice-roll-menu"> <span id="d8-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD10('d10-result', this)"> <img src="media/dado_d10.png" class="dice-roll-menu"> <span id="d10-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD12('d12-result', this)"> <img src="media/dado_d12.png" class="dice-roll-menu"> <span id="d12-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollDice('d20-result', this)"> <img src="media/dado_d20.png" class="dice-roll-menu"> <span id="d20-result" class="result"></span> </a></li>
+                    <li><a href="#" onclick = "rollD100('d100-result', this)"> <img src="media/dado_d100.png" class="dice-roll-menu"> <span id="d100-result" class="result"></span> </a></li>
+                    </ul> <!-- Fine del sotto-menu -->
+                    </li> <!-- Chiudo il list-item -->
+                    <!--qui altri list-item -->
+                    </div>
+                    <a href="formregistrazione">Log-Out</a>
             </div>
         </div>
 
+        <div class="slider-container">
+            <div class="slider">
+                 <div class="slide active"><img src="media/mappahomepage1.jpg" alt="Image 1"></div>
+                 <div class="slide"><img src="media/mappahomepage2.jpg" alt="Image 2"></div>
+                 <div class="slide"><img src="media/mappahomepage3.jpg" alt="Image 3"></div>
+            </div>
+            <button class="prev" id="prevSlide">&#10094;</button>
+            <button class="next" id="nextSlide">&#10095;</button>
+
+            <!-- HO COMMENTATO I DOT PERCHE' DA UN ERRORE PERCHE' CARICA UN BLOCCO NERO-->
+            <div class="dot-container" id="dots-container"></div>
+       </div>
+
+
+        <!-- CONTENITORI DIV STATICO PER LA MAPPA CHE NON SI USA PIU'
         <div id="map-container">
             <img src="media/mappahomepage.webp" alt="Mappa di Dungeons & Dragons" id="map">
         </div>
+        -->
 
         <div class="footer">
-            <p>&copy; 2024 Dungeons & Dragons Map. All rights reserved.</p>
+            <p>&copy; 2024 Dice and Dungeons. All rights reserved.</p>
         </div>
     </div>
 
-    <script>
-        setTimeout(function(){
-            document.getElementById('logo-animation').style.display = 'none';
-            document.getElementById('main-content').classList.remove('hidden');
-            document.getElementById('main-content').classList.add('fade-in');
-        }, 3000);
-    </script>
+    <script src="home/script.js"></script>
+    <script src="schedaPg/personaggio.js"></script>
+    
+        
 </body>
 </html>
