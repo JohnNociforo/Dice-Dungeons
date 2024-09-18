@@ -18,7 +18,7 @@
         </div>
 
         <div class="character-image">
-            <img id="character-img" src="character-image.jpg" alt="Immagine del Personaggio">
+            <img id="character-img" src="media/pg1.png" alt="Immagine del Personaggio">
         </div>
 
         <div class="info-section">
@@ -86,7 +86,7 @@
         </div>
 
         <div class="calculations">
-            <button type="button" onclick="updateCalculations()">Calcola Armor Class e Iniziativa</button>
+            <button type="button" class="calculate-button" onclick="updateCalculations()">Calcola Armor Class e Iniziativa</button>
             <div>
                 <input type="hidden" name="Armor Class" id="armorclass" required>
                 <span id="armor-class-result" class="result"></span>
@@ -105,7 +105,7 @@
             <label>Ideali</label><textarea id="ideali" rows="1"></textarea>
         </div>
         <div class="submit">
-            <button type="button" onclick="creaPersonaggio()">Crea</button>
+            <button type="button" class="create-button" onclick="creaPersonaggio()">Crea</button>
             <br>
             <span id="error-message" class="error"></span>
         </div>

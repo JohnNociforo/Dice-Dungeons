@@ -167,3 +167,37 @@ textarea {
  .invalid {
      border: 2px solid red;
  }
+
+ .calculate-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #7a3b2e;
+    color: #fff;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.calculate-button:hover {
+    background-color: #9c5e3b;
+}
+
+.create-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #5b3924;
+    color: #fff;
+    border: 2px solid #5b3924;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.create-button:hover {
+    background-color: #7a3b2e;
+}
