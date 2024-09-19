@@ -195,8 +195,6 @@ function getDatiPersonaggio() {
             return response.json();
         })
         .then(characterData => {
-            console.log('Character Data:', characterData);
-            // Use the data as needed
             const form = document.getElementById('creazionescheda');
             for (let key in characterData) {
                 if (characterData.hasOwnProperty(key)) {
