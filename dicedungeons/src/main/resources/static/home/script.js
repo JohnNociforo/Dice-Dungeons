@@ -60,8 +60,6 @@ function startAutoSlide() {
 function stopAutoSlide() {
        clearInterval(autoSlideInterval);
 }
-
-// Creazione dinamica dei punti di navigazione
   
 const dotsContainer = document.getElementById('dots-container');
 
@@ -74,7 +72,58 @@ for (let i = 0; i < slides.length; i++) {
        });
        dotsContainer.appendChild(dot);
  } 
+ 
+ function rollD4(resultId, element) {
+     const result = Math.floor(Math.random() * 4) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD6(resultId, element) {
+     const result = Math.floor(Math.random() * 6) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD8(resultId, element) {
+     const result = Math.floor(Math.random() * 8) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD10(resultId, element) {
+     const result = Math.floor(Math.random() * 10) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD12(resultId, element) {
+     const result = Math.floor(Math.random() * 12) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD20(resultId, element) {
+     const result = Math.floor(Math.random() * 20) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
+ function rollD100(resultId, element) {
+     const result = Math.floor(Math.random() * 100) + 1;
+     document.getElementById(resultId).textContent = "Risultato: " + result;
+     animateDice(element);
+ }
+ 
 
+ function animateDice(element) {
+     const diceImage = element.querySelector('.dice-roll-menu');
+     diceImage.classList.add('active');
+ 
+     setTimeout(() => {
+         diceImage.classList.remove('active');
+     }, 1000);
+ }
 
 
 
