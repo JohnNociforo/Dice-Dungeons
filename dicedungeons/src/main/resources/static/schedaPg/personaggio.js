@@ -13,6 +13,8 @@ function rollDice(resultId, button) {
 
 function rollD4(resultId) {
 
+    diceSound.play();
+
     const result = Math.floor(Math.random() * 4) + 1; // Tira un dado D4
 
     document.getElementById(resultId).textContent = `Risultato: ${result}`;
@@ -20,6 +22,8 @@ function rollD4(resultId) {
 }
 
 function rollD6(resultId) {
+
+    diceSound.play();
 
     const result = Math.floor(Math.random() * 6) + 1; // Tira un dado D6
 
@@ -29,6 +33,8 @@ function rollD6(resultId) {
 
 function rollD8(resultId) {
 
+    diceSound.play();
+
     const result = Math.floor(Math.random() * 8) + 1; // Tira un dado D8
 
     document.getElementById(resultId).textContent = `Risultato: ${result}`;
@@ -37,12 +43,16 @@ function rollD8(resultId) {
 
 function rollD10(resultId) {
 
+    diceSound.play();
+
     const result = Math.floor(Math.random() * 10) + 1; // Tira un dado D10
 
     document.getElementById(resultId).textContent = `Risultato: ${result}`;
 
 }
 function rollD12(resultId) {
+
+    diceSound.play();
 
     const result = Math.floor(Math.random() * 12) + 1; // Tira un dado D12
 
@@ -51,6 +61,8 @@ function rollD12(resultId) {
 }
 
 function rollD100(resultId) {
+
+    diceSound.play();
 
     const result = Math.floor(Math.random() * 100) + 1; // Tira un dado D100
 
