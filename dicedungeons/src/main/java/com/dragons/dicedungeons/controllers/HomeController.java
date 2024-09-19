@@ -120,7 +120,7 @@ public class HomeController {
                 Map<String,String> utente = du.cercaUtente(username, password);
                 session.setAttribute("loggato", "ok");
                 session.setAttribute("utente", utente);
-                return "redirect:homeutenteloggato";
+                return "redirect:home";
         }
         else {
             System.out.println("UTENTE NON TROVATO!");
