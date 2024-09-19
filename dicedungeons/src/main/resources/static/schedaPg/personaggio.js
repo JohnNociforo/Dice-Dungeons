@@ -54,6 +54,7 @@ function validateInput(input) {
     }
 }
 
+/*
 function rollD4(resultId) {
 
     diceSound.play();
@@ -112,6 +113,7 @@ function rollD100(resultId) {
     document.getElementById(resultId).textContent = `Risultato: ${result}`;
 
 }
+*/
 
 function updateCalculations() {
     const costituzione = parseInt(document.getElementById('costituzione').value) || 0;

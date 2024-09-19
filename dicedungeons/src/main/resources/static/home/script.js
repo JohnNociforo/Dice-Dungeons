@@ -74,42 +74,49 @@ for (let i = 0; i < slides.length; i++) {
  } 
  
  function rollD4(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 4) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD6(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 6) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD8(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 8) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD10(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 10) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD12(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 12) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD20(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 20) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
  }
  
  function rollD100(resultId, element) {
+    diceSound.play();
      const result = Math.floor(Math.random() * 100) + 1;
      document.getElementById(resultId).textContent = "Risultato: " + result;
      animateDice(element);
