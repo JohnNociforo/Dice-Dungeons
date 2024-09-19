@@ -30,8 +30,11 @@ public class HomeController {
     }
 
     @GetMapping("home")
-    public String home() {
-        System.out.println("Mapping Homepage");
+    public String home(HttpSession session) {
+
+        if(session.getAttribute("loggato") == null)
+            return "redirect:formlogin";
+
         return "home/index.html";
     }
 
@@ -137,12 +140,6 @@ public class HomeController {
         return "redirect:formlogin";
     }
 
-    @GetMapping("homeutenteloggato")
-    public String homeutenteloggato() {
-        System.out.println("Mapping HomeUtenteLoggato");
-        return "homeUtenteLoggato/homeUtenteLoggato.html";
-    }
-
     @GetMapping("notizie")
     public String notizie() {
         System.out.println("Mapping Notizie");
@@ -153,10 +150,10 @@ public class HomeController {
     //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
     //SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
     @GetMapping("")
-    public String home(HttpSession session) {
+    public String welcome(HttpSession session) {
 
         if(session.getAttribute("loggato") == null)
-            return "redirect:formlogin";
+            return "redirect:welcome";
 
         return "home/index.html";
     }
