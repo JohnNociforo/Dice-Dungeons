@@ -129,10 +129,12 @@ public class HomeController {
     }
 
     //USO QUESTO MAPPING NEL BOTTONE LOGOUT DELLA HOMEPAGE PER FARE IN MODO CHE L'UTENTE SI SCOLLEGHI DAL SUO ACCOUNT
-    @GetMapping("logout")
-    public String logout() {
+    @PostMapping("logout")
+    public String logout(HttpSession session) {
         System.out.println("Mapping LogOut");
-        return "formregistrazione";
+        session.setAttribute("loggato", null);
+        session.setAttribute("utente", null);
+        return "redirect:formlogin";
     }
 
     @GetMapping("homeutenteloggato")
