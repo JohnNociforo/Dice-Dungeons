@@ -1,0 +1,181 @@
+/* Stile di base */
+body {
+    margin: 0;
+    font-family: 'MedievalSharp', cursive;
+    background-color: #AD8330;
+    margin: 0;
+    line-height: 1.6;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+/* Animazione del logo all'apertura */
+#logo-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #AD8330;
+    animation: fadeInLogo 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.logo-animate {
+    max-width: 300px;
+    height: auto;
+    animation: scaleUp 2s ease-in-out forwards;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Nasconde il contenuto principale all'inizio */
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    display: block;
+    animation: fadeInContent 1s ease-in-out forwards;
+}
+
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -100px;
+    margin-top: -30px;
+}
+
+.logo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Assicura che l'immagine si adatti bene senza distorsioni */
+}
+
+/* Footer */
+.footer {
+    background-color: #AD8330;
+    padding: 15px;
+    text-align: center;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* DA QUI IN POI CSS NUOVOR*/
+
+#welcome-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: burlywood;
+}
+
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.welcome-text p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    width: 30%;
+    padding: 20px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.icon {
+    font-size: 3em;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-item p {
+    color: #777;
+}
+
+/*CSS BOTTONE HOME PAGE*/
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Aggiungiamo un po' di spazio tra le icone e il bottone */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/******** MOBILE *******/
+@media (max-width: 768px) {
+    .feature-item {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-item {
+        width: 100%;
+    }
+}
+

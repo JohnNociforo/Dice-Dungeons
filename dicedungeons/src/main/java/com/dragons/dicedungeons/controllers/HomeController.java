@@ -22,6 +22,12 @@ public class HomeController {
     @Autowired
     private DaoPersonaggi dp;
 
+    @GetMapping("welcome")
+    public String welcome() {
+        System.out.println("Mapping Welcome");
+        return "preHomepage/preHomepage.html";
+    }
+
     @GetMapping("home")
     public String home() {
         System.out.println("Mapping Homepage");
