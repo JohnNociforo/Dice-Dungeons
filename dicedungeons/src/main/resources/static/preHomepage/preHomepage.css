@@ -130,8 +130,15 @@ body {
 
 .icon {
     font-size: 3em;
-    color: red;
+    color: #D00000;
     margin-bottom: 15px;
+}
+
+.icon-dice-welcome{
+
+    width: 60px;
+    height: 60px;
+
 }
 
 .feature-item h3 {
@@ -154,7 +161,7 @@ body {
 .cta-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #007bff;
+    background-color: darkred;
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
@@ -163,7 +170,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
+    background-color: #FCB200;
 }
 
 /******** MOBILE *******/
