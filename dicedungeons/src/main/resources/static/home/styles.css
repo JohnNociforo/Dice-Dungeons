@@ -106,7 +106,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     padding: 10px 20px;
-    background-color: #F00909;
+    background-color: darkred;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -180,7 +180,7 @@ width: 50px;
 .slider-container {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .slider {
@@ -233,7 +233,7 @@ button:hover {
 
 .dot-container {
     position: absolute;
-    bottom: 20px;
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -283,6 +283,7 @@ div#hormenu {
     padding: 0;
     border-right: 1px solid black;
     color:black;
+    background-color: darkred !important;
     }
 
     div#hormenu a
