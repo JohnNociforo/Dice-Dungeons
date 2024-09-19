@@ -1,6 +1,6 @@
 package com.dragons.dicedungeons.dao;
 
-import java.util.*;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -8,11 +8,33 @@ public class DaoPersonaggi {
 	@Autowired
 	private Database db;
 
-	public boolean create(String nomeUtente, String nome, String classe, String razza, int livello, int hp, int iniziativa, int armorClass, int forza, int destrezza, int costituzione, int intelligenza, int saggezza, int carisma, String allineamento, String background, String equipaggiamento, String carattere, String ideali) {
-        String query = "insert into personaggi (idUtenti, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public boolean save(String nomeUtente, String nome, String imageurl, String classe, String razza, int livello, int hp, int iniziativa, int armorClass, int forza, int destrezza, int costituzione, int intelligenza, int saggezza, int carisma, String allineamento, String background, String equipaggiamento, String carattere, String ideali) {
+		String query = "INSERT INTO personaggi (idUtenti, nome, imageurl, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali) " +
+               "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+               "ON DUPLICATE KEY UPDATE " +
+               "nome = VALUES(nome), " +
+               "imageurl = VALUES(imageurl), " +
+               "classe = VALUES(classe), " +
+               "razza = VALUES(razza), " +
+               "livello = VALUES(livello), " +
+               "hp = VALUES(hp), " +
+               "iniziativa = VALUES(iniziativa), " +
+               "armorClass = VALUES(armorClass), " +
+               "forza = VALUES(forza), " +
+               "destrezza = VALUES(destrezza), " +
+               "costituzione = VALUES(costituzione), " +
+               "intelligenza = VALUES(intelligenza), " +
+               "saggezza = VALUES(saggezza), " +
+               "carisma = VALUES(carisma), " +
+               "allineamento = VALUES(allineamento), " +
+               "background = VALUES(background), " +
+               "equipaggiamento = VALUES(equipaggiamento), " +
+               "carattere = VALUES(carattere), " +
+               "ideali = VALUES(ideali)";
+
 		int idUtente = Integer.parseInt(cercaUtentePerUsername(nomeUtente).get("id"));
 		System.out.println(nomeUtente + " " + idUtente);
-        return db.update(query, idUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali);
+        return db.update(query, idUtente, nome, imageurl, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali);
     }
 
 	public Map<String, String> cercaPersonaggioPerUID(int uid) {

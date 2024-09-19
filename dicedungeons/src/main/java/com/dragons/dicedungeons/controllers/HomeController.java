@@ -154,7 +154,8 @@ public class HomeController {
 
     @PostMapping("salvapersonaggio")
     public String salvaPersonaggio(HttpSession session, 
-        @RequestParam("nomepersonaggio") String nome, 
+        @RequestParam("nome") String nome, 
+        @RequestParam("imageurl") String imageurl,
         @RequestParam("classe") String classe,
         @RequestParam("razza") String razza,
         @RequestParam("livello") Integer livello,
@@ -174,7 +175,7 @@ public class HomeController {
         @RequestParam("ideali") String ideali)
         {
             String nomeUtente = ((Map<String,String>)session.getAttribute("utente")).get("username");
-            if (dp.create(nomeUtente, nome, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
+            if (dp.save(nomeUtente, nome, imageurl, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
                 return "redirect:registrationsuccess";
             else
                 return "redirect:register";

@@ -114,7 +114,8 @@ function creaPersonaggio() {
     });
 
     if (form_valido) {
-        const nomepersonaggio = document.getElementById('nomepersonaggio').value;
+        const nome = document.getElementById('nome').value;
+        const imageurl = document.getElementById('imageurl').value;
         const classe = document.getElementById('classe').value;
         const razza = document.getElementById('razza').value;
         const livello = document.getElementById('livello').value;
@@ -135,7 +136,8 @@ function creaPersonaggio() {
 
         // Prepare data for POST request (URL encoded format)
         const formData = new URLSearchParams();
-        formData.append('nomepersonaggio', nomepersonaggio);
+        formData.append('nome', nome);
+        formData.append('imageurl', imageurl);
         formData.append('classe', classe);
         formData.append('razza', razza);
         formData.append('livello', livello);
@@ -155,7 +157,7 @@ function creaPersonaggio() {
         formData.append('ideali', ideali);
 
         // Send POST request to Spring Boot backend
-        fetch('creapersonaggio', {
+        fetch('salvapersonaggio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -195,10 +197,31 @@ function getDatiPersonaggio() {
         .then(characterData => {
             console.log('Character Data:', characterData);
             // Use the data as needed
+            const form = document.getElementById('creazionescheda');
+            for (let key in characterData) {
+                if (characterData.hasOwnProperty(key)) {
+                    const field = form.elements[key];
+                    if (field) {
+                        field.value = characterData[key];
+                    }
+                }
+            }
+            updateImage();
         })
         .catch(error => {
             console.error('Error fetching character data:', error);
         });
+}
+
+function updateImage() {
+    const imageUrl = document.getElementById('imageurl').value;
+    const characterImg = document.getElementById('character-img');
+
+    if (imageUrl.trim() !== '') {
+        characterImg.src = imageUrl;
+    } else {
+        alert('Please enter a valid image URL.');
+    }
 }
 
 window.onload = getDatiPersonaggio;
