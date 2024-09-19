@@ -216,7 +216,10 @@ function getDatiPersonaggio() {
                     }
                 }
             }
-            updateImage();
+            const imageUrl = document.getElementById('imageurl').value;
+            const characterImg = document.getElementById('character-img');
+
+            if (imageUrl.trim() !== '') characterImg.src = imageUrl;
         })
         .catch(error => {
             console.error('Error fetching character data:', error);
