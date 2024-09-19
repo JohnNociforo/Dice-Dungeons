@@ -99,7 +99,7 @@ public class Database {
 					ps.setInt(i+1, (Integer) params[i]);
 				}
 			}
-			ps.executeUpdate();
+			ps.execute();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
