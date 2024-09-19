@@ -36,33 +36,33 @@ create table utenti
 -- TEXT AREA (VARCHAR 1000) Per appunti.
 -- Lingue Conosciute
 
-create table personaggi
-(
-	id int primary key auto_increment,
-    idUtenti int,
-    foreign key(idUtenti)
-    references utenti(id)
-    on delete set null
-    on update cascade,
-	nome varchar (40),
-    classe varchar (40),
-    razza varchar (40),
-    livello int,
-    hp int, 
-    iniziativa double,
-	armorClass int,
-    forza int,
-    destrezza int,
-    costituzione int,
-    intelligenza int,
-    saggezza int,
-    carisma int,
-    allineamento varchar(1000),
-    background varchar(1000),
-    equipaggiamento varchar(1000),
-    carattere varchar(1000),
-    ideali varchar(1000)
-);
+CREATE TABLE `personaggi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idUtenti` int(11) DEFAULT NULL,
+  `nome` varchar(40) DEFAULT NULL,
+  `imageurl` varchar(255) DEFAULT NULL,
+  `classe` varchar(40) DEFAULT NULL,
+  `razza` varchar(40) DEFAULT NULL,
+  `livello` int(11) DEFAULT NULL,
+  `hp` int(11) DEFAULT NULL,
+  `iniziativa` double DEFAULT NULL,
+  `armorClass` int(11) DEFAULT NULL,
+  `forza` int(11) DEFAULT NULL,
+  `destrezza` int(11) DEFAULT NULL,
+  `costituzione` int(11) DEFAULT NULL,
+  `intelligenza` int(11) DEFAULT NULL,
+  `saggezza` int(11) DEFAULT NULL,
+  `carisma` int(11) DEFAULT NULL,
+  `allineamento` varchar(1000) DEFAULT NULL,
+  `background` varchar(1000) DEFAULT NULL,
+  `equipaggiamento` varchar(1000) DEFAULT NULL,
+  `carattere` varchar(1000) DEFAULT NULL,
+  `ideali` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idUtenti` (`idUtenti`),
+  CONSTRAINT `personaggi_ibfk_1` FOREIGN KEY (`idUtenti`) REFERENCES `utenti` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
 
 insert into utenti
 (id,username,email,password)
@@ -86,7 +86,3 @@ select * from personaggi;
 select *
 from utenti, personaggi
 where personaggi.idUtenti=utenti.id;
-
-drop table personaggi;
-
-
