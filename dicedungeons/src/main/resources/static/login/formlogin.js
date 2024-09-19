@@ -14,7 +14,6 @@ function login() {
             form_valido = false;
             errorMessage += `Riempire il campo ${input.name}.<br>`;
             input.classList.add('invalid');
-            console.log("oh no");
         }
 
     });
@@ -24,11 +23,9 @@ function login() {
             method: 'POST',
             body: form_data
         }).then(response => {
-            console.log(response.json());
             if (response.ok) {
                 form.submit();
             } else {
-                console.log("fuck");
                 errorMessageElement.innerHTML = errorMessage;
             }
         })
