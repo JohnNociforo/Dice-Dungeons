@@ -1,3 +1,8 @@
+.header{
+
+    height: auto;
+}
+
 .news-item {
     display: flex;
     background-color: white;
@@ -29,14 +34,4 @@
 /* Alternanza tra righe */
 .news-item:nth-child(even) {
     flex-direction: row-reverse; /* Scambia l'ordine tra immagine e testo */
-}
-
-@media (max-width: 768px) {
-    .news-item {
-        flex-direction: column;
-    }
-    
-    .news-item img {
-        width: 100%;
-    }
 }

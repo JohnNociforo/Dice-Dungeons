@@ -5,8 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Notizie</title>
     <link rel="stylesheet" href="sezioneNotizie/notizie.css">
+    <link rel="stylesheet" href="home/styles.css">
 </head>
 <body>
+    <div class="header">
+        <div class="logo">
+            <img src="media/logo_header.png" alt="Dice & Dungeons logo">
+        </div>
+        <div class="menu">
+            <a href="personaggio">Personaggio</a> <!-- Collega alla pagina personaggio -->
+            <a href="notizie">Notizie</a>
+
+            <!-- BLOCCO DI CODICE PER BOTTONE CON TENDINA -->
+                <div id="hormenu">   <!-- div che contiene il menu -->
+                <ul> <!-- lista principale: definisce il menu nella sua interezza -->
+                <li>
+                <a href="#">Dadi</a> <!-- primo list-item, prima voce del menu -->
+                <ul> <!-- Lista annidata: voci del sotto-menu -->
+                <li><a href="#" onclick = "rollD4('d4-result', this)"> <img src="media/dado_d4.png" class="dice-roll-menu"> <span id="d4-result" class="result"></span> </a></li>
+                <li><a href="#" onclick = "rollD6('d6-result', this)"> <img src="media/dado_d6.png" class="dice-roll-menu"> <span id="d6-result" class="result"></span></a></li>
+                <li><a href="#" onclick = "rollD8('d8-result', this)"> <img src="media/dado_d8.png" class="dice-roll-menu"> <span id="d8-result" class="result"></span> </a></li>
+                <li><a href="#" onclick = "rollD10('d10-result', this)"> <img src="media/dado_d10.png" class="dice-roll-menu"> <span id="d10-result" class="result"></span> </a></li>
+                <li><a href="#" onclick = "rollD12('d12-result', this)"> <img src="media/dado_d12.png" class="dice-roll-menu"> <span id="d12-result" class="result"></span> </a></li>
+                <li><a href="#" onclick = "rollD20('d20-result', this)"> <img src="media/dado_d20.png" class="dice-roll-menu"> <span id="d20-result" class="result"></span> </a></li>
+                <li><a href="#" onclick = "rollD100('d100-result', this)"> <img src="media/dado_d100.png" class="dice-roll-menu"> <span id="d100-result" class="result"></span> </a></li>
+                </ul> <!-- Fine del sotto-menu -->
+                </li> <!-- Chiudo il list-item -->
+                <!--qui altri list-item -->
+                </div>
+                <a href="formregistrazione">Log-Out</a>
+        </div>
+    </div>
+
     <header>
         <h1>Le Ultime Notizie</h1>
     </header>

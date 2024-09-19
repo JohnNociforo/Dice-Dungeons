@@ -2,10 +2,10 @@
 body {
     margin: 0;
     font-family: 'MedievalSharp', cursive;
-    background-color: #AD8330;
+    background-color: burlywood;
     margin: 0;
     line-height: 1.6;
-    overflow: hidden;
+    /*overflow: hidden; */
     overflow-x: hidden;
 }
 
