@@ -39,8 +39,8 @@ public class HomeController {
     public String personaggio(HttpSession session) {
         System.out.println("Mapping scheda");
 
-        //if(session.getAttribute("loggato") == null)
-            //return "redirect:formlogin";
+        if(session.getAttribute("loggato") == null)
+            return "redirect:formlogin";
 
         return "schedaPg/personaggio.html";
     }

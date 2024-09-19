@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scheda Personaggio D&D</title>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="schedaPg/personaggio.css">
+    <link rel="stylesheet" href="/schedaPg/personaggio.css">
 </head>
 <body>
     <div class="character-sheet">
         <form id="creazionescheda" action="salvapersonaggio" method="post">
         <div class="header">
+            <a href="home">
             <img src="media/logo.png" alt="Logo" class="logo">
+            </a>
             <h1>Nome Personaggio</h1>
             <input type="text" class="character-name" id="nome" name="Nome" required>
             <input type="text" id="imageurl" name="Immagine" class="imageurl" placeholder="Enter Image URL" required>
