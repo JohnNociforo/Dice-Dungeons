@@ -143,6 +143,12 @@ public class HomeController {
         return "homeUtenteLoggato/homeUtenteLoggato.html";
     }
 
+    @GetMapping("notizie")
+    public String notizie() {
+        System.out.println("Mapping Notizie");
+        return "sezioneNotizie/notizie.html";
+    }
+
 
     //QUANDO APRE IL SITO CON URL VUOTO FA REDIRECT ALLA HOMEPAGE
     //SI PUò RINOMINARE E TOGLIERE PARAMENTRO IN INPUT
