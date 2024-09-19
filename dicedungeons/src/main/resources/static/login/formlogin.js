@@ -26,7 +26,7 @@ function login() {
             if (response.ok) {
                 form.submit();
             } else {
-                errorMessageElement.innerHTML = errorMessage;
+                errorMessageElement.innerHTML = "Nome utente o password errati";
             }
         })
             .catch(error => {
