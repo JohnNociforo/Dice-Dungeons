@@ -38,48 +38,48 @@
         <div class="attributes">
             <div class="attribute">
                 <label>Forza</label>
-                <input type="number" id="forza" name="Forza" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('forza-result', this)">
+                <input type="number" id="forza" name="Forza" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('forza', 'forza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="forza-result" class="result"></span>
             </div>
             <div class="attribute">
                 <label>Destrezza</label>
-                <input type="number" id="destrezza" name="Destrezza" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('destrezza-result', this)">
+                <input type="number" id="destrezza" name="Destrezza" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('destrezza', 'destrezza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="destrezza-result" class="result"></span>
             </div>
             <div class="attribute">
                 <label>Costituzione</label>
-                <input type="number" id="costituzione" name="Costituzione" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('costituzione-result', this)">
+                <input type="number" id="costituzione" name="Costituzione" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('costituzione', 'costituzione-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="costituzione-result" class="result"></span>
             </div>
             <div class="attribute">
                 <label>Intelligenza</label>
-                <input type="number" id="intelligenza" name="Intelligenza" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('intelligenza-result', this)">
+                <input type="number" id="intelligenza" name="Intelligenza" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('intelligenza', 'intelligenza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="intelligenza-result" class="result"></span>
             </div>
             <div class="attribute">
                 <label>Saggezza</label>
-                <input type="number" id="saggezza" name="Saggezza" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('saggezza-result', this)">
+                <input type="number" id="saggezza" name="Saggezza" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('saggezza', 'saggezza-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="saggezza-result" class="result"></span>
             </div>
             <div class="attribute">
                 <label>Carisma</label>
-                <input type="number" id="carisma" name="Carisma" class="numeric-input" min="8" max="20" required>
-                <button type="button" class="dice-button" onclick="rollDice('carisma-result', this)">
+                <input type="number" id="carisma" name="Carisma" class="numeric-input" min="8" max="20" oninput="validateInput(this)" required>
+                <button type="button" class="dice-button" onclick="rollDiceWithModifier('carisma', 'carisma-result', this)">
                     <img src="media/dado.png" alt="Lancia D20">
                 </button>
                 <span id="carisma-result" class="result"></span>

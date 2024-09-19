@@ -11,6 +11,49 @@ function rollDice(resultId, button) {
     setTimeout(() => button.classList.remove('active'), 300);
 }
 
+function calculateModifier(stat) {
+    if (stat >= 8 && stat <= 9) return -1;
+    if (stat >= 10 && stat <= 11) return 0;
+    if (stat >= 12 && stat <= 13) return 1;
+    if (stat >= 14 && stat <= 15) return 2;
+    if (stat >= 16 && stat <= 17) return 3;
+    if (stat >= 18 && stat <= 19) return 4;
+    if (stat === 20) return 5;
+    return 0;
+}
+
+function rollDiceWithModifier(statId, resultId) {
+
+    diceSound.play();
+    
+    const statValue = parseInt(document.getElementById(statId).value);
+    if (isNaN(statValue) || statValue < 8 || statValue > 20) {
+        document.getElementById(resultId).textContent = 'Inserisci un numero valido tra 8 e 20';
+        return;
+    }
+    
+    const diceRoll = Math.floor(Math.random() * 20) + 1;
+    const modifier = calculateModifier(statValue);
+    const finalResult = diceRoll + modifier;
+    
+    document.getElementById(resultId).textContent = `Risultato: ${diceRoll} + Modificatore: ${modifier}`;
+    
+
+    button.classList.add('active');
+    setTimeout(() => button.classList.remove('active'), 300);
+}
+
+function validateInput(input) {
+    const value = input.value;
+    if (isNaN(value) || value < 8 || value > 20) {
+        input.classList.add('invalid');
+        document.getElementById('error-message').textContent = 'Valore non valido. Inserisci un numero tra 8 e 20.';
+    } else {
+        input.classList.remove('invalid');
+        document.getElementById('error-message').textContent = '';
+    }
+}
+
 function rollD4(resultId) {
 
     diceSound.play();
