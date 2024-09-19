@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import com.dragons.dicedungeons.dao.DaoPersonaggi;
 import com.dragons.dicedungeons.dao.DaoUtenti;
@@ -153,7 +154,7 @@ public class HomeController {
     }
 
     @PostMapping("salvapersonaggio")
-    public String salvaPersonaggio(HttpSession session, 
+    public ResponseEntity<String> salvaPersonaggio(HttpSession session, 
         @RequestParam("nome") String nome, 
         @RequestParam("imageurl") String imageurl,
         @RequestParam("classe") String classe,
@@ -175,9 +176,11 @@ public class HomeController {
         @RequestParam("ideali") String ideali)
         {
             String nomeUtente = ((Map<String,String>)session.getAttribute("utente")).get("username");
-            if (dp.save(nomeUtente, nome, imageurl, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali))
-                return "redirect:registrationsuccess";
-            else
-                return "redirect:register";
+            if (dp.save(nomeUtente, nome, imageurl, classe, razza, livello, hp, iniziativa, armorClass, forza, destrezza, costituzione, intelligenza, saggezza, carisma, allineamento, background, equipaggiamento, carattere, ideali)) {
+                System.out.println("Personaggio salvato con successo");
+                return ResponseEntity.ok("Personaggio salvato");
+            }
+            
+            return ResponseEntity.badRequest().body("Errore! Personaggio non salvato");
     }
 }
