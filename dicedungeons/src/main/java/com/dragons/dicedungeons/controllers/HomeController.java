@@ -69,9 +69,19 @@ public class HomeController {
             else
                 return "redirect:register";
         }
-        
+    }
+
+    @PostMapping("finduser")
+    public ResponseEntity<String> findUser(@RequestParam("username") String username,
+        @RequestParam("password") String password) {
+            if (du.cercaUtente(username, password) != null) {
+                return ResponseEntity.ok("found");
+            } else {
+                return ResponseEntity.badRequest().body("Nome utente o password errati");
+            }
 
     }
+    
 
     // MAPPING PER REGISTRAZIONE AVVENUTA CON SUCCESSO
     @GetMapping("registrationsuccess")
