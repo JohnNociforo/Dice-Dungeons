@@ -22,7 +22,17 @@
             </div>
             <div class="menu">
                 <a href= "#">Homepage</a> <!-- Collega alla pagina personaggio -->
-                <a href="personaggio">Personaggio</a> <!-- Collega alla pagina personaggio -->
+                <div id="hormenu">   <!-- div che contiene il menu -->
+                    <ul> <!-- lista principale: definisce il menu nella sua interezza -->
+                    <li>
+                    <a href="#">Personaggio</a> <!-- primo list-item, prima voce del menu -->
+                    <ul> <!-- Lista annidata: voci del sotto-menu -->
+                    <li><a href="personaggio"> Crea Personaggio </a></li>
+                    <li><a href="listapersonaggi"> Lista Personaggi  </a></li>
+                    </ul> <!-- Fine del sotto-menu -->
+                    </li> <!-- Chiudo il list-item -->
+                    <!--qui altri list-item -->
+                    </div>
                 <a href="notizie">Notizie</a>
 
                 <!-- BLOCCO DI CODICE PER BOTTONE CON TENDINA -->
