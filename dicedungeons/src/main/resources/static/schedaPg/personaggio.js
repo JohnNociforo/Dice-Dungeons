@@ -281,5 +281,48 @@ function updateImage() {
         alert('Please enter a valid image URL.');
     }
 }
+let selectedClasses = [];
+
+function toggleRazzaDropdown() {
+    const dropdown = document.getElementById('razza-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function toggleClasseDropdown() {
+    const dropdown = document.getElementById('classe-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function hideDropdown(dropdownId) {
+    document.getElementById(dropdownId).style.display = 'none';
+}
+
+function selectRazza(razza) {
+    document.getElementById('razza-input').value = razza;
+    hideDropdown('razza-dropdown');
+}
+
+function selectClasse(classe) {
+    if (selectedClasses.length < 3) {
+        if (!selectedClasses.includes(classe)) {
+            selectedClasses.push(classe);
+            document.getElementById('classe-input').value = selectedClasses.join('/');
+        }
+    } else {
+        alert('Puoi selezionare al massimo 3 classi.');
+    }
+    hideDropdown('classe-dropdown');
+}
+
+function clearRazza() {
+    document.getElementById('razza-input').value = '';
+    hideDropdown('razza-dropdown');
+}
+
+function clearClasse() {
+    selectedClasses = [];
+    document.getElementById('classe-input').value = '';
+    hideDropdown('classe-dropdown');
+}
 
 window.onload = getDatiPersonaggio;
