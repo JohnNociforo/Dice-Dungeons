@@ -124,15 +124,15 @@ input, textarea {
 }
 
 .dice-button img {
-    width: 40px; 
+    width: 40px;
     height: 40px;
     display: block;
     margin: 0 auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s ease;
 }
 
 .dice-button.active img {
-    transform: rotate(360deg);
+    transform: rotate(720deg);
 }
 
 .result {

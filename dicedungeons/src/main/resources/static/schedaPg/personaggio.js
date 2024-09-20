@@ -22,25 +22,25 @@ function calculateModifier(stat) {
     return 0;
 }
 
-function rollDiceWithModifier(statId, resultId) {
-
+function rollDiceWithModifier(statId, resultId, button) {
     diceSound.play();
-    
+
     const statValue = parseInt(document.getElementById(statId).value);
     if (isNaN(statValue) || statValue < 8 || statValue > 20) {
         document.getElementById(resultId).textContent = 'Inserisci un numero valido tra 8 e 20';
         return;
     }
-    
+
     const diceRoll = Math.floor(Math.random() * 20) + 1;
     const modifier = calculateModifier(statValue);
     const finalResult = diceRoll + modifier;
-    
+
     document.getElementById(resultId).textContent = `Risultato: ${diceRoll} + Modificatore: ${modifier}`;
-    
 
     button.classList.add('active');
-    setTimeout(() => button.classList.remove('active'), 300);
+    setTimeout(() => {
+        button.classList.remove('active');
+    }, 600); 
 }
 
 function validateInput(input) {
