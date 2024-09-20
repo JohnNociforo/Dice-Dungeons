@@ -153,6 +153,8 @@ function calculateIniziativa(destrezza) {
 }
 
 function creaPersonaggio() {
+    const successField = document.getElementById('success-message');
+    successField.innerHTML = "";
     const form = document.getElementById('creazionescheda');
 
     const inputs = form.querySelectorAll('input, textarea');
@@ -220,18 +222,16 @@ function creaPersonaggio() {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: formData
-        }).then(response => { 
-            if (response.redirected) {
-                    // If redirected, navigate to the success or failure page
-                    window.location.href = response.url;
-                } else {
-                    // Handle non-redirect scenarios if needed
-                    return response.text();
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            }) ;
+        }).then(response => {
+            if (response.ok) {
+                successField.innerHTML = "Scheda salvata!";
+            } else {
+                return response.text();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
     } else {
         errorMessageElement.innerHTML = errorMessage;
