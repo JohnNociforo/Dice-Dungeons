@@ -1,5 +1,6 @@
 package com.dragons.dicedungeons.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,11 @@ public class DaoPersonaggi {
 		// username e
 		// password passati come parametri.
 		return u == null ? null : u;
+	}
+
+	public List<Map<String,String>> getPersonaggi() {
+		String query = "select * from personaggi";
+		List<Map<String,String>> result = db.rows(query);
+		return result;
 	}
 }

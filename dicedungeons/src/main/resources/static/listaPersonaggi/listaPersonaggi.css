@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9; /* Light background */
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Darker shade for the heading */
+}
+
+/* Container for the cards */
+.character-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Spacing between cards */
+}
+
+/* Individual character card */
+.character-card {
+    background-color: #ffffff; /* White background for cards */
+    border: 1px solid #3498db; /* Blue border for emphasis */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    width: 300px; /* Fixed width for cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    text-align: center; /* Center text */
+}
+
+/* Character image */
+.character-card img {
+    max-width: 100px; /* Limit image size */
+    max-height: 100px; /* Limit image size */
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 15px; /* Spacing below image */
+}
+
+/* Character information */
+.character-info {
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Full width for the info section */
+}
+
+.character-info p {
+    margin: 5px 0; /* Spacing for paragraphs */
+    padding: 0; /* No padding */
+    color: #34495e; /* Darker gray for attributes */
+}
+
+.character-info strong {
+    display: inline-block;
+    width: 120px; /* Fixed width for labels */
+    color: #3498db; /* Blue for labels */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .character-card {
+        width: 100%; /* Full width for mobile */
+        margin: 10px 0; /* Margin for spacing */
+    }
+}

@@ -1,6 +1,7 @@
 package com.dragons.dicedungeons.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,11 @@ public class HomeController {
         int idUtente = Integer.parseInt(((Map<String,String>)session.getAttribute("utente")).get("id"));
         System.out.println(idUtente);
         Map<String,String> datiPersonaggio = dp.cercaPersonaggioPerUID(idUtente);
-        return ResponseEntity.ok(datiPersonaggio);
+        if (datiPersonaggio != null)
+            return ResponseEntity.ok(datiPersonaggio);
+        else {
+            return null;
+        }
     }
 
     // MAPPING PER FORM REGISTRAZIONE NUOVO UTENTE
@@ -74,10 +79,14 @@ public class HomeController {
                 return "redirect:login";
         }
         else {
-            if (du.create(username, email, password))
+            if (du.create(username, email, password)) {
+                Map<String,String> utente = du.cercaUtente(username, password);
+                session.setAttribute("loggato", "ok");
+                session.setAttribute("utente", utente);
                 return "redirect:registrationsuccess";
-            else
+            } else {
                 return "redirect:register";
+            }
         }
     }
 
@@ -188,4 +197,20 @@ public class HomeController {
             
             return ResponseEntity.badRequest().body("Errore! Personaggio non salvato");
     }
+
+    @GetMapping("getpersonaggi")
+    public ResponseEntity<List<Map<String,String>>> getPersonaggi() {
+        List<Map<String,String>> characters = dp.getPersonaggi();
+        if (characters != null) {
+            return ResponseEntity.ok(characters);
+        } else {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @GetMapping("listapersonaggi")
+    public String viewListaPersonaggi() {
+        return "listaPersonaggi/listaPersonaggi.html";
+    }
+    
 }
