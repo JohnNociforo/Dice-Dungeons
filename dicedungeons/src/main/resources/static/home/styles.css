@@ -5,7 +5,7 @@ body {
     background-color: #AD8330;
     color: #EED9D9;
     line-height: 1.6;
-    overflow: hidden;
+    /*overflow: hidden;*/
     overflow-x: hidden;
 }
 
@@ -227,6 +227,7 @@ button:hover {
 }
 
 .dot-container {
+    display: none !important;
     position: absolute;
     bottom: -100px;
     left: 50%;
