@@ -1,13 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'MedievalSharp', cursive;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 180vh;*/
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f9; /* Light background */
+    background-image: url('background-parchment.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 100px;
 }
 
 h2 {
     text-align: center;
-    color: #2c3e50; /* Darker shade for the heading */
+    color: darkred; /* Darker shade for the heading */
 }
 
 /* Container for the cards */
@@ -20,10 +28,10 @@ h2 {
 
 /* Individual character card */
 .character-card {
-    background-color: #ffffff; /* White background for cards */
-    border: 1px solid #3498db; /* Blue border for emphasis */
+    background-color: rgba(255, 244, 220, 0.9);; /* White background for cards */
+    border: 3px solid #5b3924; 
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     padding: 20px;
     width: 300px; /* Fixed width for cards */
     display: flex;
@@ -34,10 +42,29 @@ h2 {
 
 /* Character image */
 .character-card img {
-    max-width: 100px; /* Limit image size */
-    max-height: 100px; /* Limit image size */
-    border-radius: 50%; /* Circular image */
-    margin-bottom: 15px; /* Spacing below image */
+    position: absolute;
+    max-width: 100px;
+    max-height: 200px;
+    height: auto;
+    left: 130px;
+    top: -15px;
+}
+
+.character-image {
+    /*top: 23px;
+    right: 60px;
+    width: 150px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 5px; */
+}
+
+.character-image img {
+    /*
+    width: 100%;
+    height: auto;
+    display: block;
+    */
 }
 
 /* Character information */
@@ -90,22 +117,12 @@ header {
     text-align: center;
 }
 
-.character-sheet {
-    width: 550px;
-    max-width: 100%;
-    padding: 20px;
-    background-color: rgba(255, 244, 220, 0.9);
-    border: 3px solid #5b3924;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    position: relative;
-}
-
 
 .heading {
-    text-align: center;
+    /*text-align: center;
+    position: relative; */
     position: relative;
+    right: 50px;
 }
 
 .logo {
@@ -136,22 +153,6 @@ header {
     margin-right: auto;
 }
 
-.character-image {
-    position: absolute;
-    top: 23px;
-    right: 60px;
-    width: 150px;
-    height: auto;
-    overflow: hidden;
-    border-radius: 5px;
-}
-
-.character-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .info-section {
     display: flex;
     justify-content: space-between;
@@ -176,6 +177,21 @@ label {
     color: #5b3924;
     display: block;
     margin-bottom: 5px;
+    margin-top: +20px;
+}
+
+span{
+
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #5b3924;
+    border-radius: 5px;
+    background-color: #f9f4e6;
+    box-sizing: border-box;
+
+
 }
 
 input, textarea {
