@@ -25,12 +25,16 @@ function loadPersonaggi() {
                 //make it so it's not inside the h2
                 nameElement.textContent = `${character.nome}`;
 
+                const playerLabel = document.createElement('label');
+                playerLabel.textContent = `${character.player}`;
+
                 const imgElement = document.createElement('img');
                 imgElement.src = character.imageurl;
                 imgElement.alt = "Character Image";
                 imgElement.classList.add('character-image');
 
                 heading.appendChild(nameElement);
+                heading.appendChild(playerLabel);
                 heading.appendChild(imgElement);
 
                 // Create the info section
@@ -115,6 +119,30 @@ function loadPersonaggi() {
 
                     attributes.appendChild(attribute);
                 });
+
+                // ArmorClass
+                const armorSection = document.createElement('div');
+                armorSection.classList.add('armor-section');
+
+                const armorClassLabel = document.createElement('label');
+                armorClassLabel.textContent = 'Armor Class:';
+                armorSection.appendChild(armorClassLabel);
+
+                const armorClassValue = document.createElement('span');
+                armorClassValue.textContent = `${character.armorClass}`;
+                armorSection.appendChild(armorClassValue);
+
+                // Iniziativa
+                const iniziativaSection = document.createElement('div');
+                iniziativaSection.classList.add('iniziativa-section');
+
+                const iniziativaLabel = document.createElement('label');
+                iniziativaLabel.textContent = 'Iniziativa:';
+                iniziativaSection.appendChild(iniziativaLabel);
+
+                const iniziativaValue = document.createElement('span');
+                iniziativaValue.textContent = `${character.iniziativa}`;
+                iniziativaSection.appendChild(armorClassValue);
 
                 // Group Equipaggiamento, Carattere, Ideali
                 const miscSection = document.createElement('div');

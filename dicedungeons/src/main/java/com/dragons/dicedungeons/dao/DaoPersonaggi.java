@@ -60,7 +60,7 @@ public class DaoPersonaggi {
 	}
 
 	public List<Map<String,String>> getPersonaggi() {
-		String query = "select * from personaggi";
+		String query = "select personaggi.*,utenti.username as player from personaggi, utenti where personaggi.idUtenti = utenti.id";
 		List<Map<String,String>> result = db.rows(query);
 		return result;
 	}
