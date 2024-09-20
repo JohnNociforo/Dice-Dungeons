@@ -160,6 +160,13 @@ header {
     width: 100%;
 }
 
+.armor-iniziativa-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .left-column, .right-column {
     width: calc(50% - 10px);
 }

@@ -142,7 +142,13 @@ function loadPersonaggi() {
 
                 const iniziativaValue = document.createElement('span');
                 iniziativaValue.textContent = `${character.iniziativa}`;
-                iniziativaSection.appendChild(armorClassValue);
+                iniziativaSection.appendChild(iniziativaValue);
+
+                // Group ArmorClass e Iniziativa
+                const armorIniziativaSection = document.createElement('div');
+                armorIniziativaSection.classList.add('armor-iniziativa-section');
+                armorIniziativaSection.appendChild(armorSection);
+                armorIniziativaSection.appendChild(iniziativaSection);
 
                 // Group Equipaggiamento, Carattere, Ideali
                 const miscSection = document.createElement('div');
@@ -191,6 +197,7 @@ function loadPersonaggi() {
                 card.appendChild(heading);
                 card.appendChild(infoSection);
                 card.appendChild(attributes);
+                card.appendChild(armorIniziativaSection);
                 card.appendChild(miscSection);
 
                 // Append the card to the container
