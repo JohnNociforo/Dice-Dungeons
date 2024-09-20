@@ -13,53 +13,160 @@ function loadPersonaggi() {
             container.innerHTML = '';
 
             characters.forEach(character => {
-                // Create a new div element for each character
-                const characterDiv = document.createElement('div');
-                characterDiv.classList.add('character-card');  // Add a class for styling
+                // Create the character card
+                const card = document.createElement('div');
+                card.classList.add('character-card');
 
-                // Create and append an img element for the character image
-                const img = document.createElement('img');
-                img.src = character.imageurl;
-                img.alt = character.nome;
-                img.classList.add('character-image');
-                characterDiv.appendChild(img);
+                // Create the heading
+                const heading = document.createElement('div');
+                heading.classList.add('heading');
 
-                // Create and append a h2 element for the character's name
-                const name = document.createElement('h2');
-                name.textContent = character.nome;
-                characterDiv.appendChild(name);
+                const nameElement = document.createElement('h2');
+                //make it so it's not inside the h2
+                nameElement.textContent = `${character.nome}`;
 
-                // Helper function to create and append <p> elements with labels
-                function appendParagraph(label, value) {
-                    const p = document.createElement('p');
-                    const strong = document.createElement('strong');
-                    strong.textContent = label;
-                    p.appendChild(strong);
-                    p.appendChild(document.createTextNode(` ${value}`));
-                    characterDiv.appendChild(p);
-                }
+                const imgElement = document.createElement('img');
+                imgElement.src = character.imageurl;
+                imgElement.alt = "Character Image";
+                imgElement.classList.add('character-image');
 
-                // Append paragraphs for each character attribute
-                appendParagraph('Classe:', character.classe);
-                appendParagraph('Razza:', character.razza);
-                appendParagraph('Livello:', character.livello);
-                appendParagraph('HP:', character.hp);
-                appendParagraph('Iniziativa:', character.iniziativa);
-                appendParagraph('Armor Class:', character.armorClass);
-                appendParagraph('Forza:', character.forza);
-                appendParagraph('Destrezza:', character.destrezza);
-                appendParagraph('Costituzione:', character.costituzione);
-                appendParagraph('Intelligenza:', character.intelligenza);
-                appendParagraph('Saggezza:', character.saggezza);
-                appendParagraph('Carisma:', character.carisma);
-                appendParagraph('Allineamento:', character.allineamento);
-                appendParagraph('Background:', character.background || 'N/A');
-                appendParagraph('Equipaggiamento:', character.equipaggiamento || 'N/A');
-                appendParagraph('Carattere:', character.carattere || 'N/A');
-                appendParagraph('Ideali:', character.ideali || 'N/A');
+                heading.appendChild(nameElement);
+                heading.appendChild(imgElement);
 
-                // Append the character div to the container
-                container.appendChild(characterDiv);
+                // Create the info section
+                const infoSection = document.createElement('div');
+                infoSection.classList.add('info-section');
+
+                const leftColumn = document.createElement('div');
+                leftColumn.classList.add('left-column');
+                const razzaLabel = document.createElement('label');
+                razzaLabel.textContent = 'Razza:';
+                const razzaValue = document.createElement('span');
+                razzaValue.textContent = character.razza;
+                leftColumn.appendChild(razzaLabel);
+                leftColumn.appendChild(razzaValue);
+
+                const classeLabel = document.createElement('label');
+                classeLabel.textContent = 'Classe:';
+                const classeValue = document.createElement('span');
+                classeValue.textContent = character.classe;
+                leftColumn.appendChild(classeLabel);
+                leftColumn.appendChild(classeValue);
+
+                const livelloLabel = document.createElement('label');
+                livelloLabel.textContent = 'Livello:';
+                const livelloValue = document.createElement('span');
+                livelloValue.textContent = character.livello;
+                leftColumn.appendChild(livelloLabel);
+                leftColumn.appendChild(livelloValue);
+
+                const rightColumn = document.createElement('div');
+                rightColumn.classList.add('right-column');
+
+                const allineamentoLabel = document.createElement('label');
+                allineamentoLabel.textContent = 'Allineamento:';
+                const allineamentoValue = document.createElement('span');
+                allineamentoValue.textContent = character.allineamento;
+                rightColumn.appendChild(allineamentoLabel);
+                rightColumn.appendChild(allineamentoValue);
+
+                const hpLabel = document.createElement('label');
+                hpLabel.textContent = 'Punti Vita:';
+                const hpValue = document.createElement('span');
+                hpValue.textContent = character.hp;
+                rightColumn.appendChild(hpLabel);
+                rightColumn.appendChild(hpValue);
+
+                const backgroundLabel = document.createElement('label');
+                backgroundLabel.textContent = 'Background:';
+                const backgroundValue = document.createElement('span');
+                backgroundValue.textContent = character.background || 'N/A';
+                rightColumn.appendChild(backgroundLabel);
+                rightColumn.appendChild(backgroundValue);
+
+                infoSection.appendChild(leftColumn);
+                infoSection.appendChild(rightColumn);
+
+                // Create attributes section
+                const attributes = document.createElement('div');
+                attributes.classList.add('attributes');
+
+                const attrLabels = ['Forza', 'Destrezza', 'Costituzione', 'Intelligenza', 'Saggezza', 'Carisma'];
+                const attrValues = [
+                    character.forza,
+                    character.destrezza,
+                    character.costituzione,
+                    character.intelligenza,
+                    character.saggezza,
+                    character.carisma
+                ];
+
+                attrLabels.forEach((label, index) => {
+                    const attribute = document.createElement('div');
+                    attribute.classList.add('attribute');
+
+                    const labelElement = document.createElement('label');
+                    labelElement.textContent = `${label}:`;
+                    attribute.appendChild(labelElement);
+
+                    const valueElement = document.createElement('span');
+                    valueElement.textContent = attrValues[index];
+                    attribute.appendChild(valueElement);
+
+                    attributes.appendChild(attribute);
+                });
+
+                // Group Equipaggiamento, Carattere, Ideali
+                const miscSection = document.createElement('div');
+                miscSection.classList.add('misc-section');
+
+                // Create equipment section
+                const equipmentSection = document.createElement('div');
+                equipmentSection.classList.add('equipment-section');
+
+                const equipmentLabel = document.createElement('label');
+                equipmentLabel.textContent = 'Equipaggiamento:';
+                equipmentSection.appendChild(equipmentLabel);
+
+                const equipmentValue = document.createElement('span');
+                equipmentValue.textContent = character.equipaggiamento || 'N/A';
+                equipmentSection.appendChild(equipmentValue);
+
+                // Create traits section
+                const traitsSection = document.createElement('div');
+                traitsSection.classList.add('traits-section');
+
+                const carattereLabel = document.createElement('label');
+                carattereLabel.textContent = 'Carattere:';
+                const carattereValue = document.createElement('span');
+                carattereValue.textContent = character.carattere || 'N/A';
+                traitsSection.appendChild(carattereLabel);
+                traitsSection.appendChild(carattereValue);
+
+                // Create ideals sections
+                const idealsSection = document.createElement('div');
+                idealsSection.classList.add('ideals-section');
+
+                const idealiLabel = document.createElement('label');
+                idealiLabel.textContent = 'Ideali:';
+                const idealiValue = document.createElement('span');
+                idealiValue.textContent = character.ideali || 'N/A';
+                idealsSection.appendChild(idealiLabel);
+                idealsSection.appendChild(idealiValue);
+
+                // Group Equipaggiamento, Carattere, Ideali
+                miscSection.appendChild(equipmentSection);
+                miscSection.appendChild(traitsSection);
+                miscSection.appendChild(idealsSection);
+                
+                // Append all sections to the card
+                card.appendChild(heading);
+                card.appendChild(infoSection);
+                card.appendChild(attributes);
+                card.appendChild(miscSection);
+
+                // Append the card to the container
+                container.appendChild(card);
             });
         })
         .catch(error => {

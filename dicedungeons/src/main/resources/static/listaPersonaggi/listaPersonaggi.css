@@ -5,7 +5,7 @@ body {
     background-color: #f4f4f9; /* Light background */
 }
 
-h1 {
+h2 {
     text-align: center;
     color: #2c3e50; /* Darker shade for the heading */
 }
@@ -64,4 +64,141 @@ h1 {
         width: 100%; /* Full width for mobile */
         margin: 10px 0; /* Margin for spacing */
     }
+}
+
+body {
+    font-family: 'MedievalSharp', cursive;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 180vh;*/
+    margin: 0;
+    padding: 20px;
+    background-image: url('background-parchment.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    padding-top: 100px;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.character-sheet {
+    width: 550px;
+    max-width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 244, 220, 0.9);
+    border: 3px solid #5b3924;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.heading {
+    text-align: center;
+    position: relative;
+}
+
+.logo {
+    display: block;
+    /* margin: 0 auto 10px; */
+    width: 200px;
+    height: 200px;
+    margin-bottom: -20px;
+}
+
+.character-name {
+    display: block;
+    width: 80%;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 5px;
+    border: 2px solid #5b3924;
+    border-radius: 5px;
+    background-color: #f9f4e6;
+    box-sizing: border-box;
+}
+
+.image-upload {
+    margin-top: 10px;
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.character-image {
+    position: absolute;
+    top: 23px;
+    right: 60px;
+    width: 150px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.character-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.left-column, .right-column {
+    width: calc(50% - 10px);
+}
+
+label {
+    font-weight: bold;
+    color: #5b3924;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #5b3924;
+    border-radius: 5px;
+    background-color: #f9f4e6;
+    box-sizing: border-box;
+}
+
+.attributes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.misc-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.attribute {
+    width: calc(33.333% - 10px);
+    text-align: center;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
