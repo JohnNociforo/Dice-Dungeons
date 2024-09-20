@@ -40,7 +40,7 @@ CREATE TABLE `personaggi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUtenti` int(11) DEFAULT NULL,
   `nome` varchar(40) DEFAULT NULL,
-  `imageurl` varchar(255) DEFAULT NULL,
+  `imageurl` varchar(2000) DEFAULT NULL,
   `classe` varchar(40) DEFAULT NULL,
   `razza` varchar(40) DEFAULT NULL,
   `livello` int(11) DEFAULT NULL,
@@ -86,3 +86,5 @@ select * from personaggi;
 select *
 from utenti, personaggi
 where personaggi.idUtenti=utenti.id;
+
+alter table personaggi modify column imageurl varchar(2000);
