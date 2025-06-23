@@ -47,8 +47,8 @@ Il sistema permette a gruppi di gioco di:
 
 ## 📸 Screenshot
 
-
-
+### 🏠 Homepage
+![Homepage](SCREEN DND/homepage.png)
 
 
 ---
