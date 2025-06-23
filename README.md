@@ -22,6 +22,13 @@ Il sistema permette a gruppi di gioco di:
 
 ---
 
+## 📂 Struttura generale del repository GIT
+
+> **Nota:** Il codice sorgente principale si trova nel branch **developer**.  
+> Il branch **main** contiene solo file di documentazione e configurazione.
+> Per vedere il codice sorgente, seleziona il branch **developer** nel menu a tendina dei branch sopra alla lista dei file.
+
+
 ## 🛠️ Tecnologie utilizzate
 
 ### Backend
