@@ -55,7 +55,19 @@ Il sistema permette a gruppi di gioco di:
 ## 📸 Screenshot
 
 ### 🏠 Homepage
-![Homepage](screenshot/login.png)
+![Homepage](screenshot/homepage.png)
+
+### 🧙‍♂️ Scheda Personaggio  
+![Scheda Personaggio](screenshot/character.png)
+
+### 🔐 Login  
+![Login](screenshot/login.png)
+
+### 📰 NewsLetter  
+![Newsletter](screenshot/newsletter.png)
+
+### 🎲 Lancio Dadi  
+![Lancio Dadi](screenshots/dadi.png)
 
 
 ---
